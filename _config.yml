@@ -1,4 +1,5 @@
 # Site settings
+# IMPORTANT: Update 'url' below with your GitHub username (replace 'your-username' with your actual username)
 title: "MESGRO - Robotics & Mechatronics Portfolio"
 description: "An open-source template for showcasing robotics and mechatronics projects with 3D models, schematics, and code"
 url: "https://your-username.github.io"
