@@ -39,8 +39,8 @@ gallery:
 ---
 
 ## Project Overview
-[cite_start]Developed as part of Flipkart GRID 2.0, I implemented a Visual Inertial Odometry (VIO) framework to enable autonomous navigation in GPS-denied environments[cite: 57]. 
+Developed as part of Flipkart GRID 2.0, I implemented a Visual Inertial Odometry (VIO) framework to enable autonomous navigation in GPS-denied environments. 
 
 ## Technical Details
-* [cite_start]**Sensor Fusion**: Fused stereo camera and IMU data to achieve indoor localization[cite: 57].
-* [cite_start]**Milestone**: Successfully enabled autonomous window traversal for the drone[cite: 57].
+* **Sensor Fusion**: Fused stereo camera and IMU data to achieve indoor localization.
+* **Milestone**: Successfully enabled autonomous window traversal for the drone.

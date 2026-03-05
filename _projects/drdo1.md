@@ -35,7 +35,7 @@ gallery:
 ---
 
 ## Project Overview
-[cite_start]Developed for the DRUSE Competition hosted by DRDO (India's premier defense agency), where the project was declared the Winner[cite: 53]. [cite_start]I developed a heterogeneous swarm designed for multi-terrain coverage[cite: 53]. 
+Developed for the DRUSE Competition hosted by DRDO (India's premier defense agency), where the project was declared the Winner.I developed a heterogeneous swarm designed for multi-terrain coverage. 
 
 ## Technical Details
-* [cite_start]**Capabilities**: The swarm is capable of semi-autonomous SLAM-based surveys across varied environments[cite: 53].
+* **Capabilities**: The swarm is capable of semi-autonomous SLAM-based surveys across varied environments.

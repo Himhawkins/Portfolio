@@ -41,7 +41,7 @@ gallery:
 ---
 
 ## Project Overview
-[cite_start]I designed a localization system leveraging an ESP-based hardware stack[cite: 58]. The core goal was to track a ground robot accurately using WiFi signals.
+I designed a localization system leveraging an ESP-based hardware stack. The core goal was to track a ground robot accurately using WiFi signals.
 
 ## Technical Details
-* [cite_start]**Accuracy**: The system successfully triangulates a ground bot's position utilizing WiFi RSSI data, operating within a highly accurate 10cm error margin[cite: 58].
+* **Accuracy**: The system successfully triangulates a ground bot's position utilizing WiFi RSSI data, operating within a highly accurate 20cm error margin.

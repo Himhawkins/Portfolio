@@ -39,7 +39,7 @@ gallery:
 ---
 
 ## Project Overview
-[cite_start]I developed an ad-hoc networked, decentralized swarm consisting of 4 drones[cite: 54]. [cite_start] The system was built for autonomous vision-based search and rescue operations[cite: 54].
+I developed an ad-hoc networked, decentralized swarm consisting of 4 drones. The system was built for autonomous vision-based search and rescue operations[cite: 54].
 
 ## Technical Details
-* [cite_start]**Technologies Used**: Utilized MAVROS and OLSR mesh routing to manage the decentralized ad-hoc network between the UAVs[cite: 54].
+* **Technologies Used**: Utilized MAVROS and OLSR mesh routing to manage the decentralized ad-hoc network between the UAVs.

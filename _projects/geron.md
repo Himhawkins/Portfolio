@@ -47,7 +47,7 @@ gallery:
 ---
 
 ## Project Overview
-[cite_start]I built a specialized hardware module focused on assisting the elderly (Gerontechnology)[cite: 63]. [cite_start]The system acts as an automated observer that can detect falls and trigger appropriate fail-safes[cite: 63].
+I built a specialized hardware module focused on assisting the elderly (Gerontechnology). The system acts as an automated observer that can detect falls and trigger appropriate fail-safes.
 
 ## Technical Details
-* [cite_start]**Technology**: Built on a Raspberry Pi using a cv2-dnn based face-tracking framework[cite: 63].
+* **Technology**: Built on a Raspberry Pi using a cv2-dnn based face-tracking framework.
