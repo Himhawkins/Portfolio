@@ -1,0 +1,5 @@
+AI-Driven Mechanical Design Framework
+
+This project merged generative AI with mechanical engineering to streamline factory automation prototyping. I engineered a text-to-design framework capable of interpreting natural language requirements and generating immediate, interactive 3D visualizations using Three.js, completely bypassing the need for traditional CAD software or coding knowledge during the conceptual phase.
+
+The framework successfully generated functional demonstrations for a potential client. Models included a standard XY gantry for pick-and-place operations, a coupled pair of synchronized XY gantries for bottle capping, and an automated sanitization station featuring synchronized air sprays and rotary brushes.

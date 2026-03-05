@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Enabled Mobile Robotics Platform (VLM Servo) - MESGRO - Robotics & Mechatronics Portfolio</title>
+    <meta name="description"
+        content="A mobile manipulator integrated with a multi-layered, AI-driven software stack using Gemini 2.5 Pro and Moondream VLM.">
+
+    <!-- Apply theme immediately to prevent flash -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AI-Enabled Mobile Robotics Platform (VLM Servo) | MESGRO - Robotics &amp; Mechatronics Portfolio</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="AI-Enabled Mobile Robotics Platform (VLM Servo)" />
+<meta name="author" content="Pranav Shukla" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A mobile manipulator integrated with a multi-layered, AI-driven software stack using Gemini 2.5 Pro and Moondream VLM." />
+<meta property="og:description" content="A mobile manipulator integrated with a multi-layered, AI-driven software stack using Gemini 2.5 Pro and Moondream VLM." />
+<link rel="canonical" href="http://localhost:4000/Portfolio/projects/mobile-manipulator-vlm/" />
+<meta property="og:url" content="http://localhost:4000/Portfolio/projects/mobile-manipulator-vlm/" />
+<meta property="og:site_name" content="MESGRO - Robotics &amp; Mechatronics Portfolio" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-10-30T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AI-Enabled Mobile Robotics Platform (VLM Servo)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Pranav Shukla"},"dateModified":"2025-10-30T00:00:00-04:00","datePublished":"2025-10-30T00:00:00-04:00","description":"A mobile manipulator integrated with a multi-layered, AI-driven software stack using Gemini 2.5 Pro and Moondream VLM.","headline":"AI-Enabled Mobile Robotics Platform (VLM Servo)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Portfolio/projects/mobile-manipulator-vlm/"},"url":"http://localhost:4000/Portfolio/projects/mobile-manipulator-vlm/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/Portfolio/assets/css/main.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/Portfolio/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Portfolio/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Portfolio/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Portfolio/assets/images/favicon-16x16.png">
+</head>
+
+<body>
+    <canvas id="canvas-bg"></canvas>
+
+    <header class="site-header">
+    <div class="container">
+        <div class="header-content">
+            <div class="site-brand">
+                <a href="/Portfolio/" class="brand-link">
+                    <span class="brand-text">MESGRO</span>
+                </a>
+            </div>
+
+            <nav class="site-nav" id="site-nav">
+                <ul class="nav-list">
+                    
+                    <li class="nav-item">
+                        <a href="/Portfolio/"
+                            class="nav-link ">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="/Portfolio/projects/"
+                            class="nav-link ">
+                            Projects
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="/Portfolio/about/"
+                            class="nav-link ">
+                            About
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main id="main-content">
+        <div class="project-hero">
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">AI-Enabled Mobile Robotics Platform (VLM Servo)</h1>
+            <p class="project-description">A mobile manipulator integrated with a multi-layered, AI-driven software stack using Gemini 2.5 Pro and Moondream VLM.</p>
+
+            <div class="project-meta">
+                
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="project-content">
+    <div class="container">
+
+        <div class="project-header-simple">
+            <h1 class="project-title-simple">AI-Enabled Mobile Robotics Platform (VLM Servo)</h1>
+        </div>
+
+        <div class="project-split-layout">
+            <!-- Left Column: Text & Info -->
+            <div class="project-left-panel">
+
+                <!-- Overview / Description -->
+                <section class="project-section-clean" id="description">
+                    <h3>Overview</h3>
+                    <div class="project-description-content">
+                        <p class="project-lead">A mobile manipulator integrated with a multi-layered, AI-driven software stack using Gemini 2.5 Pro and Moondream VLM.</p>
+                        <h2 id="project-overview">Project Overview</h2>
+<p>Developed as a comprehensive, deployable foundation for autonomous assistive care, this project integrated a dynamic mobile manipulator with a multi-layered, AI-driven software stack. The hardware featured both vertical and horizontal mobility, paired with a multi-axis robotic arm capable of complex environmental interactions. The core objective was to build a modular platform that translates high-level natural language instructions into physical, real-world execution.
+It is an engineered a multi-modal agent designed to tackle complex, multi-step environments. The system relies on LLM function calling and VLM scene understanding to decompose and execute long-horizon tasks</p>
+
+<h2 id="technical-details">Technical Details</h2>
+<p>The platform’s spatial reasoning and high-level navigation were driven by <strong>Gemini 2.5 Pro</strong>. In simulated environments, the model achieved a 95% success rate in dynamic maze solving and obstacle avoidance based on top-down visual feeds. To mitigate real-world latency, the physical navigation stack was augmented with classical algorithms, implementing <strong>A* path planning</strong> combined with OpenCV-based color detection and ArUco markers for robust, real-time self-localization.</p>
+
+<p>For specialized perception and manipulation, the system utilized <strong>Moondream</strong>, a lightweight Vision Language Model (VLM), providing high-speed, forward-facing feature detection to actively track human subjects. The robotic arm’s dexterity was trained using the <strong>LeRobot framework</strong> and an Action Chunking Transformer (ACT), teaching the arm complex social/physical tasks via imitation learning.
+Capabilities: Enables the execution of tasks such as multi-object pick-and-place, as well as search and interact routines
+Finally, to ensure seamless Human-Robot Interaction (HRI), I engineered a fully localized, zero-latency voice control pipeline using <strong>OpenWakeWord</strong>, <strong>Whisper.cpp</strong>, and a local <strong>Gemma 2B</strong> model via Llama.cpp for natural language understanding.</p>
+
+                    </div>
+                </section>
+
+
+
+                <!-- Code Section (Collapsible) -->
+                
+
+                <!-- Components & Materials -->
+                
+
+                <!-- Meta / Actions (Moved to bottom of left) -->
+                <div class="project-meta-bottom">
+
+                    <div class="project-actions-small">
+                        
+
+                        
+                    </div>
+
+                    <div class="project-categories-bottom">
+                        
+                        <span class="category-tag-small">Embodied AI</span>
+                        
+                        <span class="category-tag-small">VLM</span>
+                        
+                        <span class="category-tag-small">Mobile Manipulation</span>
+                        
+                        <span class="category-tag-small">Hardware</span>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Media -->
+            <div class="project-right-panel">
+
+
+
+                <!-- 3D Models Section -->
+                
+
+                <!-- Media Gallery -->
+                
+                <section class="project-media-group" id="gallery">
+                    <div class="media-gallery-stack">
+                        
+                        <div class="media-item">
+                            
+                            
+                            <video controls class="gallery-video" autoplay loop muted playsinline>
+                                <source src="/Portfolio/assets/projects/Mobile%20Manipulator%20with%20VLM%20Servo/Gemini_VLM_Astar_Navigation.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            
+                            <p class="media-caption">Gemini VLM A* Navigation</p>
+                            
+                        </div>
+                        
+                        <div class="media-item">
+                            
+                            
+                            <video controls class="gallery-video" autoplay loop muted playsinline>
+                                <source src="/Portfolio/assets/projects/Mobile%20Manipulator%20with%20VLM%20Servo/Description_based_tracking_interact.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            
+                            <p class="media-caption">Description-based tracking and interaction</p>
+                            
+                        </div>
+                        
+                        <div class="media-item">
+                            
+                            
+                            <video controls class="gallery-video" autoplay loop muted playsinline>
+                                <source src="/Portfolio/assets/projects/Mobile%20Manipulator%20with%20VLM%20Servo/Aruco_marker_based_tracking.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            
+                            <p class="media-caption">ArUco marker-based tracking</p>
+                            
+                        </div>
+                        
+                        <div class="media-item">
+                            
+                            
+                            <video controls class="gallery-video" autoplay loop muted playsinline>
+                                <source src="/Portfolio/assets/projects/Mobile%20Manipulator%20with%20VLM%20Servo/TEXT_ONLY_LLM_CONTROL_and_scheduling.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            
+                            <p class="media-caption">Text-only LLM control and task scheduling</p>
+                            
+                        </div>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Visualizations (Interactive HTML Plots) -->
+                
+
+                <!-- Plotly for custom plots -->
+                
+
+                <!-- Interactive Data Plot (only if page has interactive_plot: true) -->
+                
+
+                <!-- Custom Plot Include -->
+                
+
+                <!-- Circuit Schematics -->
+                
+
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Project Navigation -->
+<div class="project-navigation">
+    <div class="container">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="nav-links">
+            
+            
+            <a href="" class="nav-link prev">
+                <i class="fas fa-chevron-left"></i>
+                <span></span>
+            </a>
+            
+
+            <a href="/Portfolio/projects/" class="nav-link all-projects">
+                <i class="fas fa-th"></i>
+                <span>All Projects</span>
+            </a>
+
+              <a
+                href="/Portfolio/projects/swerve-drive/" class="nav-link next">
+                <span>Swerve Drive Simulator</span>
+                <i class="fas fa-chevron-right"></i>
+                </a>
+                
+        </div>
+    </div>
+</div>
+    </main>
+
+    <footer class="site-footer">
+    <div class="container">
+        <div class="footer-simple">
+            <div class="footer-brand">
+                <h3 class="mesgro-title">MESGRO</h3>
+                <div class="mesgro-definition">
+                    <span class="def-highlight">M</span>echanical,
+                    <span class="def-highlight">E</span>lectronics &
+                    <span class="def-highlight">S</span>oftware
+                    <span class="def-highlight">G</span>allery for
+                    <span class="def-highlight">RO</span>botics
+                </div>
+            </div>
+
+            <div class="social-links-center">
+                
+                <a href="https://github.com/himhawkins" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                
+                
+                <a href="https://linkedin.com/in/https://www.linkedin.com/in/pranav-shukla-25206114b/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                
+                
+                <a href="https://twitter.com/your-twitter-handle" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                
+                
+                <a href="mailto:ps5387@nyu.edu" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                
+            </div>
+
+            <div class="footer-credits">
+                <p>&copy; 2026 Pranav Shukla. Built with &hearts; using Jekyll.</p>
+                <p>Designed and developed by <strong>Alejandro Ojeda Olarte</strong></p>
+                <p><a href="https://github.com/aojedao/MESGRO" target="_blank">MESGRO Template</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="/Portfolio/assets/js/main.js"></script>
+    <script src="/Portfolio/assets/js/circuit-bg.js"></script>
+
+    <!-- 3D Model Viewer -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- Three.js for additional 3D functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Image zoom library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js"></script>
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- Plotly.js for interactive data visualization -->
+    <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+
+    
+    <script src="/Portfolio/assets/js/project-viewer.js"></script>
+    
+</body>
+
+</html>

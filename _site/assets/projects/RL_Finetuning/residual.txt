@@ -1,0 +1,5 @@
+Residual Reinforcement Learning for VQ-BET Fine-Tuning
+
+This ongoing research at the GRAIL Lab seeks to close the sim-to-real gap for robotic manipulation. The core objective was to improve the grasp accuracy of a pre-trained VQ-BET base policy by layering a residual reinforcement learning component trained via Soft Actor-Critic (SAC) optimizations.
+
+Initial training occurred in a highly augmented visual simulation environment, followed by real-world fine-tuning using an auto-reset data collection setup with an XARM in a green-screen cage. The methodology incorporated offline RL critic initialization (evaluating Conservative Q-Learning and Implicit Q-Learning) alongside buffer mixing strategies. Furthermore, I implemented Low-Rank Adaptation (LoRA) and rejection-sampling-based iterative fine-tuning to continuously augment the trajectory data and improve corrective behaviors.

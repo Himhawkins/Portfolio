@@ -1,6 +1,6 @@
 /**
- * Particle Background Animation
- * Creates a smooth floating particle effect
+ * Upgraded Particle Background Animation
+ * Creates a "Neural Network / Circuit" connecting particle effect
  */
 
 class ParticleBackground {
@@ -10,8 +10,10 @@ class ParticleBackground {
 
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
+        // Max distance for particles to connect
+        this.connectionDistance = 120; 
+        
         this.resize();
-
         window.addEventListener('resize', () => this.resize());
         this.animate();
     }
@@ -26,16 +28,16 @@ class ParticleBackground {
 
     initParticles() {
         this.particles = [];
-        // Density based on screen size
-        const density = Math.floor((this.width * this.height) / 15000);
+        // Density based on screen size (lower number = more particles)
+        const density = Math.floor((this.width * this.height) / 10000);
 
         for (let i = 0; i < density; i++) {
             this.particles.push({
                 x: Math.random() * this.width,
                 y: Math.random() * this.height,
-                vx: (Math.random() - 0.5) * 0.3,
-                vy: (Math.random() - 0.5) * 0.3,
-                radius: Math.random() * 1.5 + 0.5
+                vx: (Math.random() - 0.5) * 0.5, // Velocity X
+                vy: (Math.random() - 0.5) * 0.5, // Velocity Y
+                radius: Math.random() * 2 + 1
             });
         }
     }
@@ -45,27 +47,53 @@ class ParticleBackground {
 
         this.ctx.clearRect(0, 0, this.width, this.height);
 
-        // Get theme color for particles
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const particleColor = isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.15)';
+        
+        // Setup colors based on theme
+        const particleColor = isDark ? 'rgba(59, 130, 246, 0.8)' : 'rgba(37, 99, 235, 0.4)';
+        // Line color requires RGB values so we can inject dynamic opacity (alpha)
+        const lineRgb = isDark ? '59, 130, 246' : '37, 99, 235';
 
         // Update and draw particles
-        this.particles.forEach(particle => {
-            particle.x += particle.vx;
-            particle.y += particle.vy;
+        for (let i = 0; i < this.particles.length; i++) {
+            let p1 = this.particles[i];
 
-            // Wrap around edges
-            if (particle.x < 0) particle.x = this.width;
-            if (particle.x > this.width) particle.x = 0;
-            if (particle.y < 0) particle.y = this.height;
-            if (particle.y > this.height) particle.y = 0;
+            // Move particles
+            p1.x += p1.vx;
+            p1.y += p1.vy;
 
-            // Draw particle
+            // Wrap around edges smoothly
+            if (p1.x < 0) p1.x = this.width;
+            if (p1.x > this.width) p1.x = 0;
+            if (p1.y < 0) p1.y = this.height;
+            if (p1.y > this.height) p1.y = 0;
+
+            // Draw particle dots
             this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            this.ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
             this.ctx.fillStyle = particleColor;
             this.ctx.fill();
-        });
+
+            // Draw connecting lines to nearby particles
+            for (let j = i + 1; j < this.particles.length; j++) {
+                let p2 = this.particles[j];
+                let dx = p1.x - p2.x;
+                let dy = p1.y - p2.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.connectionDistance) {
+                    // Lines fade out the further away particles are
+                    let opacity = 1 - (distance / this.connectionDistance);
+                    
+                    this.ctx.beginPath();
+                    this.ctx.strokeStyle = `rgba(${lineRgb}, ${opacity * 0.5})`;
+                    this.ctx.lineWidth = 1;
+                    this.ctx.moveTo(p1.x, p1.y);
+                    this.ctx.lineTo(p2.x, p2.y);
+                    this.ctx.stroke();
+                }
+            }
+        }
 
         requestAnimationFrame(() => this.animate());
     }

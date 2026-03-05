@@ -2,13 +2,18 @@
 layout: default
 ---
 
-<div class="hero-personal">
+<div class="hero-personal" style="padding: 60px 0;">
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-info-wrapper">
+    <div class="hero-content" style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center;">
+      
+      <div class="hero-image-wrapper">
+        <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Pranav Shukla" style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-color); box-shadow: 0 10px 30px var(--shadow-color);">
+      </div>
+
+      <div class="hero-info-wrapper" style="flex: 1; min-width: 300px;">
         <div class="hero-text">
-           <h1 class="hero-name">{{ site.author | default: "Your Name" }}</h1>
-           <p class="hero-title">Robotics & Mechatronics</p>
+           <h1 class="hero-name">{{ site.author | default: "Pranav Shukla" }}</h1>
+           <p class="hero-title">Roboticist</p>
         </div>
         
         <div class="hero-actions">
@@ -20,6 +25,7 @@ layout: default
           </a>
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -38,9 +44,21 @@ layout: default
       {% assign unique_projects = combined_projects | uniq %}
       {% for project in unique_projects limit: 9 %}
         <div class="project-card-featured">
+          
           <div class="project-media">
             {% if project.featured_image %}
-              <img src="{{ project.featured_image | relative_url }}" alt="{{ project.title }}" class="project-image">
+              {% assign file_ext = project.featured_image | split: '.' | last | downcase %}
+              {% if file_ext == 'mp4' or file_ext == 'webm' or file_ext == 'mov' or file_ext == 'avi' %}
+                <video class="project-image" autoplay loop muted playsinline style="object-fit: cover; width: 100%; height: 100%;">
+                  <source src="{{ project.featured_image | relative_url }}" type="video/{{ file_ext }}">
+                </video>
+              {% else %}
+                <img src="{{ project.featured_image | relative_url }}" alt="{{ project.title }}" class="project-image" style="object-fit: cover; width: 100%; height: 100%;">
+              {% endif %}
+            {% elsif project.gallery.first.type == 'video' %}
+                <video class="project-image" autoplay loop muted playsinline style="object-fit: cover; width: 100%; height: 100%;">
+                  <source src="{{ project.gallery.first.file | relative_url }}" type="video/mp4">
+                </video>
             {% elsif project.models.first %}
               <div class="model-preview-small">
                 <model-viewer 
@@ -80,22 +98,17 @@ layout: default
             <div class="project-features-small">
               {% if project.models %}
                 <span class="feature-badge-small" title="3D Models">
-                  <i class="fas fa-cube"></i>
-                  {{ project.models.size }}
+                  <i class="fas fa-cube"></i> {{ project.models.size }}
                 </span>
               {% endif %}
-              
               {% if project.schematics %}
                 <span class="feature-badge-small" title="Schematics">
-                  <i class="fas fa-microchip"></i>
-                  {{ project.schematics.size }}
+                  <i class="fas fa-microchip"></i> {{ project.schematics.size }}
                 </span>
               {% endif %}
-              
               {% if project.code_files %}
                 <span class="feature-badge-small" title="Code Files">
-                  <i class="fas fa-code"></i>
-                  {{ project.code_files.size }}
+                  <i class="fas fa-code"></i> {{ project.code_files.size }}
                 </span>
               {% endif %}
             </div>
@@ -106,8 +119,7 @@ layout: default
     
     <div class="showcase-actions">
       <a href="{{ '/projects/' | relative_url }}" class="btn-primary-large">
-        <i class="fas fa-th"></i>
-        View All Projects
+        <i class="fas fa-th"></i> View All Projects
       </a>
     </div>
   </div>
@@ -119,21 +131,21 @@ layout: default
       <h2>Technical Expertise</h2>
       <div class="skills-grid">
         <div class="skill-category">
-          <h3><i class="fas fa-robot"></i> Robotics</h3>
+          <h3><i class="fas fa-brain"></i> AI & ML</h3>
           <div class="skill-tags">
-            <span class="skill-tag">ROS</span>
-            <span class="skill-tag">Kinematics</span>
-            <span class="skill-tag">Path Planning</span>
-            <span class="skill-tag">SLAM</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">RL</span>
+            <span class="skill-tag">VLA & LLMs</span>
+            <span class="skill-tag">Behavioral Cloning</span>
           </div>
         </div>
         <div class="skill-category">
-          <h3><i class="fas fa-microchip"></i> Electronics</h3>
+          <h3><i class="fas fa-robot"></i> Robotics</h3>
           <div class="skill-tags">
-            <span class="skill-tag">Arduino</span>
-            <span class="skill-tag">ESP32</span>
-            <span class="skill-tag">PCB Design</span>
-            <span class="skill-tag">Sensors</span>
+            <span class="skill-tag">ROS2</span>
+            <span class="skill-tag">SLAM & VIO</span>
+            <span class="skill-tag">Gazebo</span>
+            <span class="skill-tag">LeRobot</span>
           </div>
         </div>
         <div class="skill-category">
@@ -142,16 +154,16 @@ layout: default
             <span class="skill-tag">Python</span>
             <span class="skill-tag">C/C++</span>
             <span class="skill-tag">MATLAB</span>
-            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Bash</span>
           </div>
         </div>
         <div class="skill-category">
-          <h3><i class="fas fa-cube"></i> CAD/Design</h3>
+          <h3><i class="fas fa-microchip"></i> Hardware</h3>
           <div class="skill-tags">
+            <span class="skill-tag">Mechatronics</span>
+            <span class="skill-tag">Arduino/ESP32</span>
+            <span class="skill-tag">RPi</span>
             <span class="skill-tag">SolidWorks</span>
-            <span class="skill-tag">Fusion 360</span>
-            <span class="skill-tag">3D Printing</span>
-            <span class="skill-tag">KiCad</span>
           </div>
         </div>
       </div>

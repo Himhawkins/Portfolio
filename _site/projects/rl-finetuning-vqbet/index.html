@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residual Reinforcement Learning for VQ-BET Fine-Tuning - MESGRO - Robotics & Mechatronics Portfolio</title>
+    <meta name="description"
+        content="Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC).">
+
+    <!-- Apply theme immediately to prevent flash -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Residual Reinforcement Learning for VQ-BET Fine-Tuning | MESGRO - Robotics &amp; Mechatronics Portfolio</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Residual Reinforcement Learning for VQ-BET Fine-Tuning" />
+<meta name="author" content="Pranav Shukla" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC)." />
+<meta property="og:description" content="Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC)." />
+<link rel="canonical" href="http://localhost:4000/Portfolio/projects/rl-finetuning-vqbet/" />
+<meta property="og:url" content="http://localhost:4000/Portfolio/projects/rl-finetuning-vqbet/" />
+<meta property="og:site_name" content="MESGRO - Robotics &amp; Mechatronics Portfolio" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-10T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Residual Reinforcement Learning for VQ-BET Fine-Tuning" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Pranav Shukla"},"dateModified":"2025-12-10T00:00:00-05:00","datePublished":"2025-12-10T00:00:00-05:00","description":"Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC).","headline":"Residual Reinforcement Learning for VQ-BET Fine-Tuning","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Portfolio/projects/rl-finetuning-vqbet/"},"url":"http://localhost:4000/Portfolio/projects/rl-finetuning-vqbet/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/Portfolio/assets/css/main.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/Portfolio/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Portfolio/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Portfolio/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Portfolio/assets/images/favicon-16x16.png">
+</head>
+
+<body>
+    <canvas id="canvas-bg"></canvas>
+
+    <header class="site-header">
+    <div class="container">
+        <div class="header-content">
+            <div class="site-brand">
+                <a href="/Portfolio/" class="brand-link">
+                    <span class="brand-text">MESGRO</span>
+                </a>
+            </div>
+
+            <nav class="site-nav" id="site-nav">
+                <ul class="nav-list">
+                    
+                    <li class="nav-item">
+                        <a href="/Portfolio/"
+                            class="nav-link ">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="/Portfolio/projects/"
+                            class="nav-link ">
+                            Projects
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="/Portfolio/about/"
+                            class="nav-link ">
+                            About
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main id="main-content">
+        <div class="project-hero">
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Residual Reinforcement Learning for VQ-BET Fine-Tuning</h1>
+            <p class="project-description">Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC).</p>
+
+            <div class="project-meta">
+                
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="project-content">
+    <div class="container">
+
+        <div class="project-header-simple">
+            <h1 class="project-title-simple">Residual Reinforcement Learning for VQ-BET Fine-Tuning</h1>
+        </div>
+
+        <div class="project-split-layout">
+            <!-- Left Column: Text & Info -->
+            <div class="project-left-panel">
+
+                <!-- Overview / Description -->
+                <section class="project-section-clean" id="description">
+                    <h3>Overview</h3>
+                    <div class="project-description-content">
+                        <p class="project-lead">Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC).</p>
+                        <h2 id="project-overview">Project Overview</h2>
+<p>This ongoing research at the GRAIL Lab seeks to close the sim-to-real gap for robotic manipulation. The core objective was to improve the grasp accuracy of a pre-trained VQ-BET base policy by layering a residual reinforcement learning component trained via Soft Actor-Critic (SAC) optimizations.</p>
+
+<h2 id="technical-details">Technical Details</h2>
+<p>Initial training occurred in a highly augmented visual simulation environment, followed by real-world fine-tuning using an auto-reset data collection setup with an XARM in a green-screen cage. The methodology incorporated offline RL critic initialization (evaluating Conservative Q-Learning and Implicit Q-Learning) alongside buffer mixing strategies. Furthermore, I implemented Low-Rank Adaptation (LoRA) and rejection-sampling-based iterative fine-tuning to continuously augment the trajectory data and improve corrective behaviors.</p>
+
+                    </div>
+                </section>
+
+
+
+                <!-- Code Section (Collapsible) -->
+                
+
+                <!-- Components & Materials -->
+                
+
+                <!-- Meta / Actions (Moved to bottom of left) -->
+                <div class="project-meta-bottom">
+
+                    <div class="project-actions-small">
+                        
+
+                        
+                    </div>
+
+                    <div class="project-categories-bottom">
+                        
+                        <span class="category-tag-small">Reinforcement Learning</span>
+                        
+                        <span class="category-tag-small">Machine Learning</span>
+                        
+                        <span class="category-tag-small">Sim-to-Real</span>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Media -->
+            <div class="project-right-panel">
+
+
+
+                <!-- 3D Models Section -->
+                
+
+                <!-- Media Gallery -->
+                
+                <section class="project-media-group" id="gallery">
+                    <div class="media-gallery-stack">
+                        
+                        <div class="media-item">
+                            
+                            
+                            <video controls class="gallery-video" autoplay loop muted playsinline>
+                                <source src="/Portfolio/assets/projects/RL_Finetuning/Screencast%20From%202025-12-12%2011-51-37.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            
+                            <p class="media-caption">Policy Evaluation</p>
+                            
+                        </div>
+                        
+                        <div class="media-item">
+                            
+                            
+                            <video controls class="gallery-video" autoplay loop muted playsinline>
+                                <source src="/Portfolio/assets/projects/RL_Finetuning/Screencast%20From%202025-12-05%2002-16-18.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            
+                            <p class="media-caption">Training in simulated environments</p>
+                            
+                        </div>
+                        
+                        <div class="media-item">
+                            
+                            
+                            <video controls class="gallery-video" autoplay loop muted playsinline>
+                                <source src="/Portfolio/assets/projects/RL_Finetuning/Screencast%20From%202025-11-07%2013-02-24.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            
+                            <p class="media-caption">Residual behavior adjustments</p>
+                            
+                        </div>
+                        
+                        <div class="media-item">
+                            
+                            
+                            <img src="/Portfolio/assets/projects/RL_Finetuning/Screenshot%20From%202026-03-01%2021-22-47.png"
+                                alt="Loss and Reward Plots" class="gallery-image" data-zoomable>
+                            
+                            
+                            <p class="media-caption">Loss and Reward Plots</p>
+                            
+                        </div>
+                        
+                        <div class="media-item">
+                            
+                            
+                            <img src="/Portfolio/assets/projects/RL_Finetuning/Screenshot%20From%202026-03-01%2021-22-27.png"
+                                alt="Training Metrics" class="gallery-image" data-zoomable>
+                            
+                            
+                            <p class="media-caption">Training Metrics</p>
+                            
+                        </div>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Visualizations (Interactive HTML Plots) -->
+                
+
+                <!-- Plotly for custom plots -->
+                
+
+                <!-- Interactive Data Plot (only if page has interactive_plot: true) -->
+                
+
+                <!-- Custom Plot Include -->
+                
+
+                <!-- Circuit Schematics -->
+                
+
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Project Navigation -->
+<div class="project-navigation">
+    <div class="container">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="nav-links">
+            
+            
+            <a href="" class="nav-link prev">
+                <i class="fas fa-chevron-left"></i>
+                <span></span>
+            </a>
+            
+
+            <a href="/Portfolio/projects/" class="nav-link all-projects">
+                <i class="fas fa-th"></i>
+                <span>All Projects</span>
+            </a>
+
+            
+        </div>
+    </div>
+</div>
+    </main>
+
+    <footer class="site-footer">
+    <div class="container">
+        <div class="footer-simple">
+            <div class="footer-brand">
+                <h3 class="mesgro-title">MESGRO</h3>
+                <div class="mesgro-definition">
+                    <span class="def-highlight">M</span>echanical,
+                    <span class="def-highlight">E</span>lectronics &
+                    <span class="def-highlight">S</span>oftware
+                    <span class="def-highlight">G</span>allery for
+                    <span class="def-highlight">RO</span>botics
+                </div>
+            </div>
+
+            <div class="social-links-center">
+                
+                <a href="https://github.com/himhawkins" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                
+                
+                <a href="https://linkedin.com/in/https://www.linkedin.com/in/pranav-shukla-25206114b/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                
+                
+                <a href="https://twitter.com/your-twitter-handle" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                
+                
+                <a href="mailto:ps5387@nyu.edu" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                
+            </div>
+
+            <div class="footer-credits">
+                <p>&copy; 2026 Pranav Shukla. Built with &hearts; using Jekyll.</p>
+                <p>Designed and developed by <strong>Alejandro Ojeda Olarte</strong></p>
+                <p><a href="https://github.com/aojedao/MESGRO" target="_blank">MESGRO Template</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="/Portfolio/assets/js/main.js"></script>
+    <script src="/Portfolio/assets/js/circuit-bg.js"></script>
+
+    <!-- 3D Model Viewer -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- Three.js for additional 3D functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Image zoom library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js"></script>
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- Plotly.js for interactive data visualization -->
+    <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+
+    
+    <script src="/Portfolio/assets/js/project-viewer.js"></script>
+    
+</body>
+
+</html>

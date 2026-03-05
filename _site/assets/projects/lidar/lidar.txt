@@ -1,0 +1,5 @@
+Low-Cost Software-Stabilized 2D/3D LiDAR System
+
+This hardware engineering project successfully delivered a highly functional, cost-effective, and perturbation-resistant LiDAR system optimized for indoor SLAM (Simultaneous Localization and Mapping) . The custom sensor module fused a TF LUNA 1D Time-of-Flight sensor, a Kalman Filter-stabilized IMU, and a Parallax continuous servo with optical encoder feedback.
+
+The system's brains ran on a BS2 BOE microcontroller communicating with a comprehensive, custom-built ROS driver package. The software suite handled serial data publishing, calibration, transformation frames (TF/Odometry), and laser scan generation for RViz visualization. The IMU data allowed the system to dynamically recalculate measured distances in the original plane of measurement to correct for physical perturbations, while also supporting a manual 3D spatial modeling mode.

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero-Code LLM-Driven Multi-Robot Coordination - MESGRO - Robotics & Mechatronics Portfolio</title>
+    <meta name="description"
+        content="A framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using natural language.">
+
+    <!-- Apply theme immediately to prevent flash -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Zero-Code LLM-Driven Multi-Robot Coordination | MESGRO - Robotics &amp; Mechatronics Portfolio</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Zero-Code LLM-Driven Multi-Robot Coordination" />
+<meta name="author" content="Pranav Shukla" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using natural language." />
+<meta property="og:description" content="A framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using natural language." />
+<link rel="canonical" href="http://localhost:4000/Portfolio/projects/zero-code-llm/" />
+<meta property="og:url" content="http://localhost:4000/Portfolio/projects/zero-code-llm/" />
+<meta property="og:site_name" content="MESGRO - Robotics &amp; Mechatronics Portfolio" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-11-30T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Zero-Code LLM-Driven Multi-Robot Coordination" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Pranav Shukla"},"dateModified":"2025-11-30T00:00:00-05:00","datePublished":"2025-11-30T00:00:00-05:00","description":"A framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using natural language.","headline":"Zero-Code LLM-Driven Multi-Robot Coordination","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Portfolio/projects/zero-code-llm/"},"url":"http://localhost:4000/Portfolio/projects/zero-code-llm/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/Portfolio/assets/css/main.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/Portfolio/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Portfolio/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Portfolio/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Portfolio/assets/images/favicon-16x16.png">
+</head>
+
+<body>
+    <canvas id="canvas-bg"></canvas>
+
+    <header class="site-header">
+    <div class="container">
+        <div class="header-content">
+            <div class="site-brand">
+                <a href="/Portfolio/" class="brand-link">
+                    <span class="brand-text">MESGRO</span>
+                </a>
+            </div>
+
+            <nav class="site-nav" id="site-nav">
+                <ul class="nav-list">
+                    
+                    <li class="nav-item">
+                        <a href="/Portfolio/"
+                            class="nav-link ">
+                            Home
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="/Portfolio/projects/"
+                            class="nav-link ">
+                            Projects
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="/Portfolio/about/"
+                            class="nav-link ">
+                            About
+                        </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main id="main-content">
+        <div class="project-hero">
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Zero-Code LLM-Driven Multi-Robot Coordination</h1>
+            <p class="project-description">A framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using natural language.</p>
+
+            <div class="project-meta">
+                
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="project-content">
+    <div class="container">
+
+        <div class="project-header-simple">
+            <h1 class="project-title-simple">Zero-Code LLM-Driven Multi-Robot Coordination</h1>
+        </div>
+
+        <div class="project-split-layout">
+            <!-- Left Column: Text & Info -->
+            <div class="project-left-panel">
+
+                <!-- Overview / Description -->
+                <section class="project-section-clean" id="description">
+                    <h3>Overview</h3>
+                    <div class="project-description-content">
+                        <p class="project-lead">A framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using natural language.</p>
+                        <h2 id="project-overview">Project Overview</h2>
+<p>This research presented a comprehensive “zero-code” framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using purely natural language instructions through a Python-based GUI. The system bridged the gap between abstract, high-level user intent and precise, low-level physical execution by delegating task decomposition to Large Language Models.</p>
+
+<h2 id="system-architecture">System Architecture</h2>
+<p>The perception layer relied on an overhead multi-camera setup calibrated using a Charuco board and stitched into a unified top-down view using homography alignment. Robot localization was handled externally by tracking ArUco tags mounted on the chassis.</p>
+
+<p>High-level cognitive reasoning was powered by <strong>Gemini 2.5 Pro</strong>, which decomposed complex user prompts into actionable sub-tasks, while Moondream handled VLM-based object queries. An RPC server was established to coordinate task, robot, and data services, communicating with the physical hardware via an ESP32 bridge supporting Wi-Fi, BLE, and ESP-NOW.</p>
+
+<p>For physical execution, the framework utilized a highly responsive motion stack combining an <strong>RRT* planner</strong> with online replanning. A hybrid controller was deployed utilizing Pure Pursuit for general navigation and a tuned PID terminal controller to ensure millimeter-precision alignment. The framework was rigorously validated through complex physical experiments, including collaboratively ordering numbered blocks and two-robot color-sorting with live collision avoidance.</p>
+
+                    </div>
+                </section>
+
+
+
+                <!-- Code Section (Collapsible) -->
+                
+
+                <!-- Components & Materials -->
+                
+
+                <!-- Meta / Actions (Moved to bottom of left) -->
+                <div class="project-meta-bottom">
+
+                    <div class="project-actions-small">
+                        
+
+                        
+                    </div>
+
+                    <div class="project-categories-bottom">
+                        
+                        <span class="category-tag-small">Multi-Robot Systems</span>
+                        
+                        <span class="category-tag-small">LLM</span>
+                        
+                        <span class="category-tag-small">Control Systems</span>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Media -->
+            <div class="project-right-panel">
+
+
+
+                <!-- 3D Models Section -->
+                
+
+                <!-- Media Gallery -->
+                
+                <section class="project-media-group" id="gallery">
+                    <div class="media-gallery-stack">
+                        
+                        <div class="media-item">
+                            
+                            
+                            <video controls class="gallery-video" autoplay loop muted playsinline>
+                                <source src="/Portfolio/assets/projects/Mobile-Manipulation/combined_F.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            
+                            <p class="media-caption">Collaborative multi-robot task execution</p>
+                            
+                        </div>
+                        
+                        <div class="media-item">
+                            
+                            
+                            <video controls class="gallery-video" autoplay loop muted playsinline>
+                                <source src="/Portfolio/assets/projects/Mobile-Manipulation/Screencast%20From%202025-12-01%2011-44-01.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            
+                            <p class="media-caption">System interface and tracking</p>
+                            
+                        </div>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Visualizations (Interactive HTML Plots) -->
+                
+
+                <!-- Plotly for custom plots -->
+                
+
+                <!-- Interactive Data Plot (only if page has interactive_plot: true) -->
+                
+
+                <!-- Custom Plot Include -->
+                
+
+                <!-- Circuit Schematics -->
+                
+
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Project Navigation -->
+<div class="project-navigation">
+    <div class="container">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="nav-links">
+            
+            
+            <a href="" class="nav-link prev">
+                <i class="fas fa-chevron-left"></i>
+                <span></span>
+            </a>
+            
+
+            <a href="/Portfolio/projects/" class="nav-link all-projects">
+                <i class="fas fa-th"></i>
+                <span>All Projects</span>
+            </a>
+
+              <a
+                href="/Portfolio/projects/rl-finetuning-vqbet/" class="nav-link next">
+                <span>Residual Reinforcement Learning for VQ-BET Fine-Tuning</span>
+                <i class="fas fa-chevron-right"></i>
+                </a>
+                
+        </div>
+    </div>
+</div>
+    </main>
+
+    <footer class="site-footer">
+    <div class="container">
+        <div class="footer-simple">
+            <div class="footer-brand">
+                <h3 class="mesgro-title">MESGRO</h3>
+                <div class="mesgro-definition">
+                    <span class="def-highlight">M</span>echanical,
+                    <span class="def-highlight">E</span>lectronics &
+                    <span class="def-highlight">S</span>oftware
+                    <span class="def-highlight">G</span>allery for
+                    <span class="def-highlight">RO</span>botics
+                </div>
+            </div>
+
+            <div class="social-links-center">
+                
+                <a href="https://github.com/himhawkins" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                
+                
+                <a href="https://linkedin.com/in/https://www.linkedin.com/in/pranav-shukla-25206114b/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                
+                
+                <a href="https://twitter.com/your-twitter-handle" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                
+                
+                <a href="mailto:ps5387@nyu.edu" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                
+            </div>
+
+            <div class="footer-credits">
+                <p>&copy; 2026 Pranav Shukla. Built with &hearts; using Jekyll.</p>
+                <p>Designed and developed by <strong>Alejandro Ojeda Olarte</strong></p>
+                <p><a href="https://github.com/aojedao/MESGRO" target="_blank">MESGRO Template</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="/Portfolio/assets/js/main.js"></script>
+    <script src="/Portfolio/assets/js/circuit-bg.js"></script>
+
+    <!-- 3D Model Viewer -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- Three.js for additional 3D functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Image zoom library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js"></script>
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- Plotly.js for interactive data visualization -->
+    <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+
+    
+    <script src="/Portfolio/assets/js/project-viewer.js"></script>
+    
+</body>
+
+</html>
