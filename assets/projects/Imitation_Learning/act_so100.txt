@@ -1,0 +1,5 @@
+Generalizable Imitation Learning for Domestic Tasks
+
+Focused on Embodied AI, I built a high-performance computing pipeline (using LeRobot) to train a sequence of utility models for a mobile SO-100 robotic arm. The architecture utilized Action Chunking Transformers linked to event triggers to govern autonomous behaviors.
+
+By training on teleoperated data, the system successfully generalized across complex, multi-stage domestic tasks. The mobile platform was capable of fetching specific objects for a human, wiping down surfaces with a cloth, and autonomously clearing cluttered areas by picking up littered items and returning them to their designated storage locations.

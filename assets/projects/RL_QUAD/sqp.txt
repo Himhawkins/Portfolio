@@ -1,0 +1,5 @@
+MPC-Based Quadcopter Control using SQP
+
+This project tackled the challenge of advanced aerial maneuvers through optimal control theory. I designed and implemented a Sequential Quadratic Programming (SQP) solver entirely from scratch to drive a Model Predictive Control (MPC) framework for a simulated 2D quadcopter.
+
+The controller successfully executed a stable 360-degree flip followed by an immediate return to a stable hover. This required careful mathematical formulation to balance the optimization cost function against strict, real-time constraints on minimum altitude, thrust forces, and acceleration bounds throughout the maneuver's execution.
