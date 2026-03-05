@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "Residual Reinforcement Learning for VQ-BET Fine-Tuning"
+order: 2
 description: "Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC)."
 date: 2025-12-10
 categories: [Reinforcement Learning, Machine Learning, Sim-to-Real]

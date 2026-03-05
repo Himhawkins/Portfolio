@@ -37,42 +37,44 @@ layout: default
       <p class="section-subtitle">A curated collection of my research and design</p>
     </div>
     
-    <div class="projects-grid-featured">
-      {% assign featured_projects = site.projects | where: "featured", true | sort: "date" | reverse %}
-      {% assign all_projects = site.projects | sort: "date" | reverse %}
+  <div class="projects-grid-featured">
+      {% assign featured_projects = site.projects | where: "featured", true | sort: "order" %}
+      {% assign all_projects = site.projects | sort: "order" %}
       {% assign combined_projects = featured_projects | concat: all_projects %}
       {% assign unique_projects = combined_projects | uniq %}
       {% for project in unique_projects limit: 9 %}
         <div class="project-card-featured">
-          
-          <div class="project-media">
+          <div class="project-media" style="background-color: var(--surface-color); display: flex; justify-content: center; align-items: center; overflow: hidden;">
+            
             {% if project.featured_image %}
               {% assign file_ext = project.featured_image | split: '.' | last | downcase %}
               {% if file_ext == 'mp4' or file_ext == 'webm' or file_ext == 'mov' or file_ext == 'avi' %}
                 <video class="project-image" autoplay loop muted playsinline style="object-fit: cover; width: 100%; height: 100%;">
-                  <source src="{{ project.featured_image | relative_url }}" type="video/{{ file_ext }}">
+                  <source src="{{ project.featured_image | relative_url }}" type="video/{{ file_ext }}" onerror="this.parentElement.outerHTML='<img src=\'https://fonts.gstatic.com/s/e/notoemoji/latest/1f916/512.gif\' style=\'width:100px; height:100px; opacity:0.8;\'>'">
                 </video>
               {% else %}
-                <img src="{{ project.featured_image | relative_url }}" alt="{{ project.title }}" class="project-image" style="object-fit: cover; width: 100%; height: 100%;">
+                <img src="{{ project.featured_image | relative_url }}" alt="{{ project.title }}" class="project-image" style="object-fit: cover; width: 100%; height: 100%;" onerror="this.onerror=null; this.src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f916/512.gif'; this.style.objectFit='contain'; this.style.width='100px'; this.style.height='100px'; this.style.opacity='0.8';">
               {% endif %}
+              
             {% elsif project.gallery.first.type == 'video' %}
                 <video class="project-image" autoplay loop muted playsinline style="object-fit: cover; width: 100%; height: 100%;">
-                  <source src="{{ project.gallery.first.file | relative_url }}" type="video/mp4">
+                  <source src="{{ project.gallery.first.file | relative_url }}" type="video/mp4" onerror="this.parentElement.outerHTML='<img src=\'https://fonts.gstatic.com/s/e/notoemoji/latest/1f916/512.gif\' style=\'width:100px; height:100px; opacity:0.8;\'>'">
                 </video>
+                
             {% elsif project.models.first %}
-              <div class="model-preview-small">
+              <div class="model-preview-small" style="width: 100%; height: 100%;">
                 <model-viewer 
                   src="{{ project.models.first.file | relative_url }}"
                   alt="{{ project.title }}"
                   camera-controls
                   auto-rotate
-                  class="preview-model-small">
+                  class="preview-model-small"
+                  style="width: 100%; height: 100%;">
                 </model-viewer>
               </div>
+              
             {% else %}
-              <div class="project-placeholder-small">
-                <i class="fas fa-robot"></i>
-              </div>
+              <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f916/512.gif" alt="Animated Robot Placeholder" style="width: 100px; height: 100px; opacity: 0.8; object-fit: contain;">
             {% endif %}
             
             <div class="project-overlay">
@@ -81,20 +83,16 @@ layout: default
               </a>
             </div>
           </div>
-          
           <div class="project-info-featured">
             <div class="project-categories-small">
               {% for category in project.categories limit:2 %}
                 <span class="category-tag-small">{{ category }}</span>
               {% endfor %}
             </div>
-            
             <h3 class="project-title-featured">
               <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
             </h3>
-            
             <p class="project-excerpt-small">{{ project.description | truncate: 80 }}</p>
-            
             <div class="project-features-small">
               {% if project.models %}
                 <span class="feature-badge-small" title="3D Models">
@@ -116,7 +114,6 @@ layout: default
         </div>
       {% endfor %}
     </div>
-    
     <div class="showcase-actions">
       <a href="{{ '/projects/' | relative_url }}" class="btn-primary-large">
         <i class="fas fa-th"></i> View All Projects

@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "Autonomous Indoor Drone (Flipkart GRID 2.0)"
+order: 15
 description: "VIO framework for GPS-denied indoor localization using stereo camera and IMU fusion."
 date: 2024-10-30
 categories: [UAV, Localization, Computer Vision]

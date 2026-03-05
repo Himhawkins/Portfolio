@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "Action Chunking for Imitation Learning"
+order: 4
 description: "Enhancing VQ-BET performance via action chunking, hyperparameter sweeps, and temporal moving averages at NYU GRAIL Lab."
 date: 2025-04-15
 categories: [Robotics, Imitation Learning, Machine Learning]

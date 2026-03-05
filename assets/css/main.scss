@@ -7,3 +7,34 @@
 @import "components";
 @import "project";
 @import "responsive";
+
+/* Make the grid columns wider so cards take up more space */
+.projects-grid-featured {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
+    gap: 2.5rem !important; /* Increase space between cards */
+}
+
+/* Make the video/image area taller */
+.project-media {
+    height: 280px !important; /* Default is usually around 200px */
+}
+
+/* Ensure the titles and text inside are properly scaled */
+.project-title-featured {
+    font-size: 1.4rem !important;
+}
+
+.project-excerpt-small {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+}
+
+/* Adjust for mobile screens so they don't break on phones */
+@media (max-width: 768px) {
+    .projects-grid-featured {
+        grid-template-columns: 1fr !important;
+    }
+    .project-media {
+        height: 220px !important; 
+    }
+}

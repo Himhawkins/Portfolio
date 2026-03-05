@@ -1,10 +1,12 @@
 ---
 layout: project
 title: "6-DOF Robotic Kinematics and Simulation"
+order: 13
 description: "A comprehensive MATLAB simulation environment for a 6-Degree-of-Freedom robotic arm covering forward/inverse kinematics and dynamics."
 date: 2024-05-10
 categories: [Kinematics, MATLAB, Simulation, Dynamics]
 ---
+
 
 ## Project Overview
 Developed in MATLAB, this project established a comprehensive kinematic and dynamic simulation environment for a 6-Degree-of-Freedom robotic arm. 

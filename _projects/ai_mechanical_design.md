@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "AI-Driven Mechanical Design Framework"
+order: 12
 description: "Text-to-design framework interpreting natural language to generate immediate, interactive 3D visualizations."
 date: 2025-09-22
 categories: [Generative AI, Mechanical Design, Web3D]

@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "Low-Cost Software-Stabilized 3D LiDAR"
+order: 9
 description: "A highly functional, cost-effective, and perturbation-resistant LiDAR system optimized for indoor SLAM."
 date: 2024-11-20
 categories: [Hardware, SLAM, ROS, Sensing]

@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "Automated Waste Detection and Sorting System"
+order: 11
 description: "End-to-end automated pipeline for waste detection, classification, and physical sorting using a network of XARM robots."
 date: 2025-08-15
 categories: [Computer Vision, ROS2, Robotics]

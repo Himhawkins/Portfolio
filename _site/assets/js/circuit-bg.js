@@ -1,6 +1,6 @@
 /**
- * Upgraded Particle Background Animation
- * Creates a "Neural Network / Circuit" connecting particle effect
+ * Interactive Swarm Background Animation
+ * Particles connect to form a network, but actively avoid the user's mouse.
  */
 
 class ParticleBackground {
@@ -10,11 +10,23 @@ class ParticleBackground {
 
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
-        // Max distance for particles to connect
-        this.connectionDistance = 120; 
+        this.connectionDistance = 130; 
+        
+        // Mouse tracking
+        this.mouse = { x: null, y: null, radius: 150 };
         
         this.resize();
+        
         window.addEventListener('resize', () => this.resize());
+        window.addEventListener('mousemove', (e) => {
+            this.mouse.x = e.x;
+            this.mouse.y = e.y;
+        });
+        window.addEventListener('mouseout', () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
+        });
+
         this.animate();
     }
 
@@ -28,15 +40,16 @@ class ParticleBackground {
 
     initParticles() {
         this.particles = [];
-        // Density based on screen size (lower number = more particles)
-        const density = Math.floor((this.width * this.height) / 10000);
+        const density = Math.floor((this.width * this.height) / 9000);
 
         for (let i = 0; i < density; i++) {
             this.particles.push({
                 x: Math.random() * this.width,
                 y: Math.random() * this.height,
-                vx: (Math.random() - 0.5) * 0.5, // Velocity X
-                vy: (Math.random() - 0.5) * 0.5, // Velocity Y
+                vx: (Math.random() - 0.5) * 0.8,
+                vy: (Math.random() - 0.5) * 0.8,
+                baseVx: (Math.random() - 0.5) * 0.8, // Remember original speed
+                baseVy: (Math.random() - 0.5) * 0.8,
                 radius: Math.random() * 2 + 1
             });
         }
@@ -48,33 +61,50 @@ class ParticleBackground {
         this.ctx.clearRect(0, 0, this.width, this.height);
 
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        
-        // Setup colors based on theme
-        const particleColor = isDark ? 'rgba(59, 130, 246, 0.8)' : 'rgba(37, 99, 235, 0.4)';
-        // Line color requires RGB values so we can inject dynamic opacity (alpha)
+        const particleColor = isDark ? 'rgba(59, 130, 246, 0.8)' : 'rgba(37, 99, 235, 0.5)';
         const lineRgb = isDark ? '59, 130, 246' : '37, 99, 235';
 
-        // Update and draw particles
         for (let i = 0; i < this.particles.length; i++) {
             let p1 = this.particles[i];
 
-            // Move particles
+            // 1. Check Mouse Collision (Swarm Avoidance)
+            if (this.mouse.x != null) {
+                let dx = p1.x - this.mouse.x;
+                let dy = p1.y - this.mouse.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.mouse.radius) {
+                    // Push particles away
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const force = (this.mouse.radius - distance) / this.mouse.radius;
+                    
+                    p1.vx += forceDirectionX * force * 0.5;
+                    p1.vy += forceDirectionY * force * 0.5;
+                }
+            }
+
+            // Return slowly to base velocity (Friction/Damping)
+            p1.vx = p1.vx * 0.95 + p1.baseVx * 0.05;
+            p1.vy = p1.vy * 0.95 + p1.baseVy * 0.05;
+
+            // Move
             p1.x += p1.vx;
             p1.y += p1.vy;
 
-            // Wrap around edges smoothly
+            // Wrap edges
             if (p1.x < 0) p1.x = this.width;
             if (p1.x > this.width) p1.x = 0;
             if (p1.y < 0) p1.y = this.height;
             if (p1.y > this.height) p1.y = 0;
 
-            // Draw particle dots
+            // Draw Node
             this.ctx.beginPath();
             this.ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
             this.ctx.fillStyle = particleColor;
             this.ctx.fill();
 
-            // Draw connecting lines to nearby particles
+            // Draw Connections
             for (let j = i + 1; j < this.particles.length; j++) {
                 let p2 = this.particles[j];
                 let dx = p1.x - p2.x;
@@ -82,11 +112,9 @@ class ParticleBackground {
                 let distance = Math.sqrt(dx * dx + dy * dy);
 
                 if (distance < this.connectionDistance) {
-                    // Lines fade out the further away particles are
                     let opacity = 1 - (distance / this.connectionDistance);
-                    
                     this.ctx.beginPath();
-                    this.ctx.strokeStyle = `rgba(${lineRgb}, ${opacity * 0.5})`;
+                    this.ctx.strokeStyle = `rgba(${lineRgb}, ${opacity * 0.4})`;
                     this.ctx.lineWidth = 1;
                     this.ctx.moveTo(p1.x, p1.y);
                     this.ctx.lineTo(p2.x, p2.y);
@@ -99,7 +127,4 @@ class ParticleBackground {
     }
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new ParticleBackground();
-});
+document.addEventListener('DOMContentLoaded', () => new ParticleBackground());

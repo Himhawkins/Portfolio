@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "PPO Reinforcement Learning for Quadruped Locomotion"
+order: 3
 description: "Trained a robust locomotion policy for the Unitree Go2 quadruped robot within the Isaac Lab physics simulator."
 date: 2025-05-10
 categories: [Reinforcement Learning, Simulation, Robotics]

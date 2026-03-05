@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "VQ-VAE Hyperparameter Optimization for Bimanual Policies"
+order: 8
 description: "Troubleshooting and optimizing bimanual robotic policies on the YOR (Cone-E) hardware using AR Kit visual-inertial localization."
 date: 2025-06-20
 categories: [Robotics, Simulation, Machine Learning]

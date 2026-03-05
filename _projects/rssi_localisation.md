@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "WiFi RSSI-Based Localization"
+order: 17
 description: "ESP-based system triangulating a ground bot's position within a 10cm error margin."
 date: 2024-10-30
 categories: [Localization, Arduino, ESP]

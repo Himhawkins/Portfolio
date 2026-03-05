@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "AI-Enabled Mobile Robotics Platform (VLM Servo)"
+order: 5
 description: "A mobile manipulator integrated with a multi-layered, AI-driven software stack using Gemini 2.5 Pro and Moondream VLM."
 date: 2025-10-30
 categories: [Embodied AI, VLM, Mobile Manipulation, Hardware]
@@ -27,5 +28,5 @@ It is an engineered a multi-modal agent designed to tackle complex, multi-step e
 The platform's spatial reasoning and high-level navigation were driven by **Gemini 2.5 Pro**. In simulated environments, the model achieved a 95% success rate in dynamic maze solving and obstacle avoidance based on top-down visual feeds. To mitigate real-world latency, the physical navigation stack was augmented with classical algorithms, implementing **A* path planning** combined with OpenCV-based color detection and ArUco markers for robust, real-time self-localization.
 
 For specialized perception and manipulation, the system utilized **Moondream**, a lightweight Vision Language Model (VLM), providing high-speed, forward-facing feature detection to actively track human subjects. The robotic arm's dexterity was trained using the **LeRobot framework** and an Action Chunking Transformer (ACT), teaching the arm complex social/physical tasks via imitation learning.
-Capabilities: Enables the execution of tasks such as multi-object pick-and-place, as well as search and interact routines
+**Capabilities**: Enables the execution of tasks such as multi-object pick-and-place, as well as search and interact routines
 Finally, to ensure seamless Human-Robot Interaction (HRI), I engineered a fully localized, zero-latency voice control pipeline using **OpenWakeWord**, **Whisper.cpp**, and a local **Gemma 2B** model via Llama.cpp for natural language understanding.

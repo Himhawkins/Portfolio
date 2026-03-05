@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "Swerve Drive Simulator"
+order: 11
 description: "4-wheel swerve holonomic drive framework with integrated kinematics, dynamics, and continuous potential-based obstacle avoidance."
 date: 2025-10-30
 categories: [Simulation, Kinematics, Path Planning]

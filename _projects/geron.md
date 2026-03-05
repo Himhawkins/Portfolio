@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "Vision-Based Gerontechnology"
+order: 16
 description: "cv2-dnn based face-tracking Raspberry Pi module to detect falls and trigger fail-safes."
 date: 2024-10-30
 categories: [Computer Vision, Raspberry Pi, Healthcare Tech]
