@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Heterogeneous Swarm Robotics (DRDO)"
-order: 15
+order: 17
 description: "Multi-terrain coverage swarm capable of semi-autonomous SLAM-based surveys."
 date: 2024-10-30
 categories: [Robotics, Swarm, SLAM]

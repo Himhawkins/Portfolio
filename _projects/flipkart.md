@@ -5,36 +5,36 @@ order: 15
 description: "VIO framework for GPS-denied indoor localization using stereo camera and IMU fusion."
 date: 2024-10-30
 categories: [UAV, Localization, Computer Vision]
-featured_image: "/assets/images/projects/indoor-drone/featured.jpg"
-github_url: "https://github.com/yourusername/indoor-drone"
-demo_url: "https://youtu.be/your-demo-video"
+featured_image: "/assets/projects/flipkart/main.mp4"
+# github_url: "https://github.com/yourusername/indoor-drone"
+# demo_url: "https://youtu.be/your-demo-video"
 
-# 3D Models
-models: []
+# # 3D Models
+# models: []
 
-# Circuit Schematics
-schematics: []
+# # Circuit Schematics
+# schematics: []
 
 # Code Files
-code_files:
-  - name: "VIO Processing"
-    file: "vio.cpp"
-    language: "cpp"
-    download_url: "https://github.com/yourusername/indoor-drone/blob/main/src/vio.cpp"
-    content: |
-      # VIO localization algorithm
+# code_files:
+#   - name: "VIO Processing"
+#     file: "vio.cpp"
+#     language: "cpp"
+#     download_url: "https://github.com/yourusername/indoor-drone/blob/main/src/vio.cpp"
+#     content: |
+#       # VIO localization algorithm
 
 # Components List
-components:
-  - name: "Stereo Camera"
-    quantity: 1
-    description: "Visual input for odometry"
-    link: ""
+# components:
+#   - name: "Stereo Camera"
+#     quantity: 1
+#     description: "Visual input for odometry"
+#     link: ""
 
 # Media gallery with images, videos, and GIFs
 gallery:
   - type: "video"
-    file: "/assets/images/projects/indoor-drone/window-traversal.mp4"
+    file: "/assets/projects/flipkart/main.mp4"
     description: "Drone autonomously traversing a window"
 ---
 

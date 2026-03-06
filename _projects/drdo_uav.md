@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Decentralized UAV Swarm (DRDO SASES)"
-order: 14
+order: 16
 description: "Ad-hoc networked, decentralized swarm of 4 drones for autonomous vision-based search and rescue."
 date: 2024-10-30
 categories: [UAV, Swarm, Networking]
