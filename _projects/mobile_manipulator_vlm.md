@@ -5,6 +5,7 @@ order: 5
 description: "A mobile manipulator integrated with a multi-layered, AI-driven software stack using Gemini 2.5 Pro and Moondream VLM."
 date: 2025-10-30
 categories: [Embodied AI, VLM, Mobile Manipulation, Hardware]
+featured_video: "/assets/projects/Mobile Manipulator with VLM Servo/Description_based_tracking_interact.mp4"
 gallery:
   - type: "video"
     file: "/assets/projects/Mobile Manipulator with VLM Servo/Gemini_VLM_Astar_Navigation.mp4"
