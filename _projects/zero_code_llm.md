@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "Zero-Code LLM-Driven Multi-Robot Coordination"
+title: "Zero-Shot LLM-Driven Multi-Robot Coordination"
 order: 1
 description: "A framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using natural language."
 date: 2025-11-30
@@ -15,7 +15,7 @@ gallery:
 ---
 
 ## Project Overview
-This research presented a comprehensive "zero-code" framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using purely natural language instructions through a Python-based GUI. The system bridged the gap between abstract, high-level user intent and precise, low-level physical execution by delegating task decomposition to Large Language Models.
+This research presented a comprehensive "zero-shot" framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using purely natural language instructions through a Python-based GUI. The system bridged the gap between abstract, high-level user intent and precise, low-level physical execution by delegating task decomposition to Large Language Models.
 
 ## System Architecture
 The framework integrates LLM tool-calling, perception, planning, and control layers.These layers are connected over a high-frequency RPC layer, which allows the system to create, schedule, and execute tasks directly from user text inputs.

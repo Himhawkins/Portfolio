@@ -16,7 +16,7 @@ permalink: /about/
                 Robotics Engineer & AI Researcher specializing in Embodied AI, Reinforcement Learning, and Mechatronics.
             </p>
             <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 30px;">
-                I focus on bridging the gap between advanced artificial intelligence and physical robotic execution. My recent work at the <strong>GRAIL Lab (NYU Courant)</strong> and <strong>FAMS NYU</strong> involves developing cutting-edge frameworks for Embodied AI, multi-robot coordination, and sim-to-real reinforcement learning. My expertise lies in zero-code LLM/VLM-driven control systems, bimanual teleoperation, robust optimal control (MPC/SQP), and designing custom hardware solutions like stabilized 3D LiDARs and multi-axis mobile manipulators.
+                I focus on bridging the gap between advanced artificial intelligence and physical robotic execution. My recent work at the <strong>GRAIL Lab (NYU Courant)</strong> and <strong>FAMS NYU</strong> involves developing cutting-edge frameworks for Embodied AI, multi-robot coordination, and sim-to-real reinforcement learning. My expertise lies in zero-shot LLM/VLM-driven control systems, bimanual teleoperation, robust optimal control (MPC/SQP), and designing custom hardware solutions like stabilized 3D LiDARs and multi-axis mobile manipulators.
             </p>
         </div>
 

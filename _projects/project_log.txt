@@ -1,0 +1,806 @@
+=== DIRECTORY STRUCTURE ===
+_projects/
+├── 6dof_kinematics.md
+├── action_chunking.md
+├── ai_mechanical_design.md
+├── directory_logger.py
+├── drdo1.md
+├── drdo_uav.md
+├── flipkart.md
+├── geron.md
+├── imitation_learning_so100.md
+├── inverse_cauchy_ann.md
+├── lidar_slam.md
+├── mobile_manipulator_vlm.md
+├── mpc_quadcopter_sqp.md
+├── project_log.txt
+├── rl_finetuning_vqbet.md
+├── rl_ppo_quadruped.md
+├── rssi_localisation.md
+├── swerve_drive.md
+├── vqvae_bimanual.md
+├── waste_sorting_robotics.md
+└── zero_code_llm.md
+
+==============================
+
+FILE: action_chunking.md
+------------------------
+---
+layout: project
+title: "Action Chunking for Imitation Learning"
+order: 4
+description: "Enhancing VQ-BET performance via action chunking, hyperparameter sweeps, and temporal moving averages at NYU GRAIL Lab."
+date: 2025-04-15
+categories: [Robotics, Imitation Learning, Machine Learning]
+featured_image: /assets/projects/ActionChunk/smallskip.mp4
+gallery:
+  - type: "video"
+    file: "/assets/projects/ActionChunk/action9.mp4"
+    description: "Action chunking execution and inference smoothness"
+  - type: "video"
+    file: "/assets/projects/ActionChunk/bigskip.mp4"
+    description: "Model performance using a 7-step long skip (bigskip)"
+  - type: "video"
+    file: "/assets/projects/ActionChunk/smallskip.mp4"
+    description: "Model performance using a short skip configuration"
+---
+
+## Project Overview
+Conducted at the GRAIL Lab at NYU Courant under Professor Lerrel Pinto, this research focused on enhancing the performance of a vanilla Vector Quantized Behavioral Transformer (VQ-BET) model. I implemented action chunking—a technique where the model predicts a sequence of future actions rather than a single step—to significantly improve inference smoothness and mitigate compounding execution errors.
+
+## Technical Details
+The experimentation phase involved extensive hyperparameter sweeps across blend and buffer decay factors, temporal moving averages, and chunk lengths. By testing models with various time skips (e.g., short, zero, and 7-step long skips), the project identified the optimal configurations for stable, long-horizon imitation learning tasks.
+
+==============================
+
+FILE: mobile_manipulator_vlm.md
+-------------------------------
+---
+layout: project
+title: "AI-Enabled Mobile Robotics Platform (VLM Servo)"
+order: 5
+description: "A mobile manipulator integrated with a multi-layered, AI-driven software stack using Gemini 2.5 Pro and Moondream VLM."
+date: 2025-10-30
+categories: [Embodied AI, VLM, Mobile Manipulation, Hardware]
+gallery:
+  - type: "video"
+    file: "/assets/projects/Mobile Manipulator with VLM Servo/Gemini_VLM_Astar_Navigation.mp4"
+    description: "Gemini VLM A* Navigation"
+  - type: "video"
+    file: "/assets/projects/Mobile Manipulator with VLM Servo/Description_based_tracking_interact.mp4"
+    description: "Description-based tracking and interaction"
+  - type: "video"
+    file: "/assets/projects/Mobile Manipulator with VLM Servo/Aruco_marker_based_tracking.mp4"
+    description: "ArUco marker-based tracking"
+  - type: "video"
+    file: "/assets/projects/Mobile Manipulator with VLM Servo/TEXT_ONLY_LLM_CONTROL_and_scheduling.mp4"
+    description: "Text-only LLM control and task scheduling"
+---
+
+## Project Overview
+Developed as a comprehensive, deployable foundation for autonomous assistive care, this project integrated a dynamic mobile manipulator with a multi-layered, AI-driven software stack. The hardware featured both vertical and horizontal mobility, paired with a multi-axis robotic arm capable of complex environmental interactions. The core objective was to build a modular platform that translates high-level natural language instructions into physical, real-world execution.
+It is an engineered a multi-modal agent designed to tackle complex, multi-step environments. The system relies on LLM function calling and VLM scene understanding to decompose and execute long-horizon tasks
+
+## Technical Details
+The platform's spatial reasoning and high-level navigation were driven by **Gemini 2.5 Pro**. In simulated environments, the model achieved a 95% success rate in dynamic maze solving and obstacle avoidance based on top-down visual feeds. To mitigate real-world latency, the physical navigation stack was augmented with classical algorithms, implementing **A* path planning** combined with OpenCV-based color detection and ArUco markers for robust, real-time self-localization.
+
+For specialized perception and manipulation, the system utilized **Moondream**, a lightweight Vision Language Model (VLM), providing high-speed, forward-facing feature detection to actively track human subjects. The robotic arm's dexterity was trained using the **LeRobot framework** and an Action Chunking Transformer (ACT), teaching the arm complex social/physical tasks via imitation learning.
+**Capabilities**: Enables the execution of tasks such as multi-object pick-and-place, as well as search and interact routines
+Finally, to ensure seamless Human-Robot Interaction (HRI), I engineered a fully localized, zero-latency voice control pipeline using **OpenWakeWord**, **Whisper.cpp**, and a local **Gemma 2B** model via Llama.cpp for natural language understanding.
+
+==============================
+
+FILE: mpc_quadcopter_sqp.md
+---------------------------
+---
+layout: project
+title: "MPC-Based Quadcopter Control using SQP"
+order: 9
+description: "Designed a Sequential Quadratic Programming (SQP) solver from scratch to drive an MPC framework for advanced aerial maneuvers."
+date: 2025-03-01
+categories: [Control Systems, Optimal Control, UAV]
+featured_image: "/assets/projects/RL_QUAD/quad_sqp.mp4"
+gallery:
+  - type: "video"
+    file: "/assets/projects/RL_QUAD/quad_mpc.mp4"
+    description: "MPC tracking performance"
+  - type: "video"
+    file: "/assets/projects/RL_QUAD/quad_sqp.mp4"
+    description: "360-degree flip execution"
+  - type: "image"
+    file: "/assets/projects/RL_QUAD/Screenshot From 2026-03-01 19-27-12.png"
+    description: "System States and Control Inputs"
+---
+
+## Project Overview
+This project tackled the challenge of advanced aerial maneuvers through optimal control theory. I designed and implemented a Sequential Quadratic Programming (SQP) solver entirely from scratch to drive a Model Predictive Control (MPC) framework for a simulated 2D quadcopter.
+
+## Technical Details
+Focused on advanced trajectory control, I designed and simulated an MPPI (Model Predictive Path Integral) controller.
+
+The controller was validated on complex quadcopter maneuvers, specifically flips, as well as end-effector control for a 3-DOF robotic arm
+
+The controller successfully executed a stable 360-degree flip followed by an immediate return to a stable hover. This required careful mathematical formulation to balance the optimization cost function against strict, real-time constraints on minimum altitude, thrust forces, and acceleration bounds throughout the maneuver's execution.
+
+==============================
+
+FILE: imitation_learning_so100.md
+---------------------------------
+---
+layout: project
+title: "Generalizable Imitation Learning for Domestic Tasks"
+order: 7
+description: "High-performance computing pipeline using LeRobot to train Action Chunking Transformers (ACT) for a mobile SO-100 robotic arm."
+date: 2025-07-20
+categories: [Embodied AI, Imitation Learning, Robotics]
+gallery:
+  - type: "video"
+    file: "/assets/projects/Imitation_Learning/Imitation_demos.mp4"
+    description: "Autonomous domestic task execution"
+  - type: "video"
+    file: "/assets/projects/Imitation_Learning/sandwich_compiled.mp4"
+    description: "Generalizing the 'making a sandwich' task"
+ 
+---
+
+## Project Overview
+Focused on Embodied AI, I built a high-performance computing pipeline (using LeRobot) to train a sequence of utility models for a mobile SO-100 robotic arm. The architecture utilized Action Chunking Transformers linked to event triggers to govern autonomous behaviors.
+
+## Technical Details
+I built a High-Performance Computing (HPC) pipeline using LeRobot to train various imitation models, including VQ-Bet, ACT (Action Chunking Transformers), and Diffusion.
+
+**Generalization**: The models successfully achieved generalization on complex tasks from teleoperated data[cite: 51].
+**Tasks Executed**: Included ‘making a sandwich’, object-pickup and drop-off, and cleaning
+
+By training on teleoperated data, the system successfully generalized across complex, multi-stage domestic tasks. The mobile platform was capable of fetching specific objects for a human, wiping down surfaces with a cloth, and autonomously clearing cluttered areas by picking up littered items and returning them to their designated storage locations.
+
+==============================
+
+FILE: swerve_drive.md
+---------------------
+---
+layout: project
+title: "Swerve Drive Simulator"
+order: 11
+description: "4-wheel swerve holonomic drive framework with integrated kinematics, dynamics, and continuous potential-based obstacle avoidance."
+date: 2025-10-30
+categories: [Simulation, Kinematics, Path Planning]
+featured_image: "/assets/projects/swerve/pure.gif"
+gallery:
+  - type: "video"
+    file: "/assets/projects/swerve/pure.webm"
+    description: "Path Tracking on Potential map"
+  - type: "video"
+    file: "/assets/projects/swerve/dynamic.webm"
+    description: "Dynamic Obstacle Avoidance"
+  - type: "video"
+    file: "/assets/projects/swerve/adaptive.webm"
+    description: "Adaptive Torque Control for varying ground friction"
+  - type: "image"
+    file: "/assets/projects/swerve/fbd.png"
+    description: "Free Body Diagram for kinematics Design"
+  - type: "image"
+    file: "/assets/projects/swerve/pure.gif"
+    description: "Holonomic movement visualization"
+---
+
+## Project Overview
+I designed and simulated a complete 4-wheel swerve holonomic drive framework. The simulator features integrated kinematics, dynamics, and a dedicated simulation environment.
+
+## Technical Details
+* **Control Stack**: Utilizes a cascade adaptive+PID controller.
+* **Pathing & Navigation**: Features pure pursuit path tracking and A* based path planning operating over a procedurally generated obstacle maze.
+* **Obstacle Avoidance**: Implements dynamic obstacle avoidance utilizing continuous potential based obstacles.
+
+==============================
+
+FILE: lidar_slam.md
+-------------------
+---
+layout: project
+title: "Low-Cost Software-Stabilized 3D LiDAR"
+order: 9
+description: "A highly functional, cost-effective, and perturbation-resistant LiDAR system optimized for indoor SLAM."
+date: 2024-11-20
+categories: [Hardware, SLAM, ROS, Sensing]
+featured_image: "/assets/projects/lidar/imu_pcf.mp4"
+gallery:
+  - type: "video"
+    file: "/assets/projects/lidar/imu_pcf.mp4"
+    description: "Point cloud generation with IMU stabilization"
+  - type: "video"
+    file: "/assets/projects/lidar/dynamic.mp4"
+    description: "Dynamic mapping in action"
+  - type: "image"
+    file: "/assets/projects/lidar/whole.png"
+    description: "Completed LiDAR Assembly"
+  - type: "image"
+    file: "/assets/projects/lidar/internal.png"
+    description: "Internal Wiring and Mechanics"
+
+
+---
+
+## Project Overview
+I engineered a novel, low-cost 3D-stabilized LiDAR system. The hardware facilitates low-cost 3D point cloud mapping.
+This hardware engineering project successfully delivered a highly functional, cost-effective, and perturbation-resistant LiDAR system optimized for indoor SLAM (Simultaneous Localization and Mapping). The custom sensor module fused a TF LUNA 1D Time-of-Flight sensor, a Kalman Filter-stabilized IMU, and a Parallax continuous servo with optical encoder feedback.
+
+## Software Integration
+The system operates by fusing data from a spinning ID LiDAR, a Kalman Filter-stabilized IMU, and a rotary encoder.
+The system's brains ran on a BS2 BOE microcontroller communicating with a comprehensive, custom-built **ROS driver package**. The software suite handled serial data publishing, calibration, transformation frames (TF/Odometry), and laser scan generation for RViz visualization. The IMU data allowed the system to dynamically recalculate measured distances in the original plane of measurement to correct for physical perturbations, while also supporting a manual 3D spatial modeling mode.
+
+==============================
+
+FILE: 6dof_kinematics.md
+------------------------
+---
+layout: project
+title: "6-DOF Robotic Kinematics and Simulation"
+order: 13
+description: "A comprehensive MATLAB simulation environment for a 6-Degree-of-Freedom robotic arm covering forward/inverse kinematics and dynamics."
+date: 2024-05-10
+categories: [Kinematics, MATLAB, Simulation, Dynamics]
+---
+
+
+## Project Overview
+Developed in MATLAB, this project established a comprehensive kinematic and dynamic simulation environment for a 6-Degree-of-Freedom robotic arm. 
+
+## Technical Details
+I implemented both forward kinematics (mapping joint angles to end-effector position) and inverse kinematics (calculating required joint angles for a desired spatial pose) with robust error handling for out-of-workspace coordinates.
+
+The system was extended to include inverse dynamics using the Jacobian matrix, allowing for the calculation of necessary joint torques based on external wrenches applied to the end-effector. Additionally, the software calculated and rendered the robot's complete 3D spatial workspace and included a custom path-planning module to generate optimized motion profiles based on minimal time or torque criteria.
+
+==============================
+
+FILE: rssi_localisation.md
+--------------------------
+---
+layout: project
+title: "WiFi RSSI-Based Localization"
+order: 17
+description: "ESP-based system triangulating a ground bot's position within a 10cm error margin."
+date: 2024-10-30
+categories: [Localization, Arduino, ESP]
+featured_image: "/assets/images/projects/wifi-localization/featured.jpg"
+github_url: "https://github.com/yourusername/wifi-localization"
+demo_url: "https://youtu.be/your-demo-video"
+
+# 3D Models
+models: []
+
+# Circuit Schematics
+schematics:
+  - file: "/assets/schematics/wifi-localization/nodes.png"
+    description: "ESP node placement"
+
+# Code Files
+code_files:
+  - name: "Triangulation Logic"
+    file: "triangulate.cpp"
+    language: "cpp"
+    download_url: "https://github.com/yourusername/wifi-localization/blob/main/src/triangulate.cpp"
+    content: |
+      # RSSI parsing and triangulation math
+
+# Components List
+components:
+  - name: "ESP32/ESP8266 Modules"
+    quantity: 3
+    description: "WiFi nodes"
+    link: ""
+
+# Media gallery with images, videos, and GIFs
+gallery:
+  - type: "image"
+    file: "/assets/images/projects/wifi-localization/heatmap.jpg"
+    description: "RSSI mapping visualization"
+---
+
+## Project Overview
+I designed a localization system leveraging an ESP-based hardware stack. The core goal was to track a ground robot accurately using WiFi signals.
+
+## Technical Details
+* **Accuracy**: The system successfully triangulates a ground bot's position utilizing WiFi RSSI data, operating within a highly accurate 20cm error margin.
+
+==============================
+
+FILE: flipkart.md
+-----------------
+---
+layout: project
+title: "Autonomous Indoor Drone (Flipkart GRID 2.0)"
+order: 15
+description: "VIO framework for GPS-denied indoor localization using stereo camera and IMU fusion."
+date: 2024-10-30
+categories: [UAV, Localization, Computer Vision]
+featured_image: "/assets/projects/flipkart/main.mp4"
+# github_url: "https://github.com/yourusername/indoor-drone"
+# demo_url: "https://youtu.be/your-demo-video"
+
+# # 3D Models
+# models: []
+
+# # Circuit Schematics
+# schematics: []
+
+# Code Files
+# code_files:
+#   - name: "VIO Processing"
+#     file: "vio.cpp"
+#     language: "cpp"
+#     download_url: "https://github.com/yourusername/indoor-drone/blob/main/src/vio.cpp"
+#     content: |
+#       # VIO localization algorithm
+
+# Components List
+# components:
+#   - name: "Stereo Camera"
+#     quantity: 1
+#     description: "Visual input for odometry"
+#     link: ""
+
+# Media gallery with images, videos, and GIFs
+gallery:
+  - type: "video"
+    file: "/assets/projects/flipkart/main.mp4"
+    description: "Drone autonomously traversing a window"
+---
+
+## Project Overview
+Developed as part of Flipkart GRID 2.0, I implemented a Visual Inertial Odometry (VIO) framework to enable autonomous navigation in GPS-denied environments. 
+
+## Technical Details
+* **Sensor Fusion**: Fused stereo camera and IMU data to achieve indoor localization.
+* **Milestone**: Successfully enabled autonomous window traversal for the drone.
+
+==============================
+
+FILE: rl_finetuning_vqbet.md
+----------------------------
+---
+layout: project
+title: "Residual Reinforcement Learning for VQ-BET Fine-Tuning"
+order: 2
+description: "Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC)."
+date: 2025-12-10
+categories: [Reinforcement Learning, Machine Learning, Sim-to-Real]
+featured_image: "/assets/projects/RL_Finetuning/Screencast From 2025-12-12 11-51-37.webm"
+gallery:
+  - type: "video"
+    file: "/assets/projects/RL_Finetuning/Screencast From 2025-12-12 11-51-37.webm"
+    description: "Policy Evaluation"
+  - type: "video"
+    file: "/assets/projects/RL_Finetuning/Screencast From 2025-12-05 02-16-18.webm"
+    description: "Training in simulated environments"
+  - type: "video"
+    file: "/assets/projects/RL_Finetuning/Screencast From 2025-11-07 13-02-24.webm"
+    description: "Residual behavior adjustments"
+  - type: "image"
+    file: "/assets/projects/RL_Finetuning/Screenshot From 2026-03-01 21-22-47.png"
+    description: "Loss and Reward Plots"
+  - type: "image"
+    file: "/assets/projects/RL_Finetuning/Screenshot From 2026-03-01 21-22-27.png"
+    description: "Training Metrics"
+---
+
+## Project Overview
+This ongoing research at the GRAIL Lab seeks to close the sim-to-real gap for robotic manipulation. The core objective was to improve the grasp accuracy of a pre-trained VQ-BET base policy by layering a residual reinforcement learning component trained via Soft Actor-Critic (SAC) optimizations.
+
+## Technical Details
+Initial training occurred in a highly augmented visual simulation environment, followed by real-world fine-tuning using an auto-reset data collection setup with an XARM in a green-screen cage. The methodology incorporated offline RL critic initialization (evaluating Conservative Q-Learning and Implicit Q-Learning) alongside buffer mixing strategies. Furthermore, I implemented Low-Rank Adaptation (LoRA) and rejection-sampling-based iterative fine-tuning to continuously augment the trajectory data and improve corrective behaviors.
+
+==============================
+
+FILE: waste_sorting_robotics.md
+-------------------------------
+---
+layout: project
+title: "Automated Waste Detection and Sorting System"
+order: 11
+description: "End-to-end automated pipeline for waste detection, classification, and physical sorting using a network of XARM robots."
+date: 2025-08-15
+categories: [Computer Vision, ROS2, Robotics]
+gallery:
+  - type: "video"
+    file: "/assets/projects/Waste_Sorting/working_real.mp4"
+    description: "Real-world sorting execution"
+  - type: "video"
+    file: "/assets/projects/Waste_Sorting/llm_hri_f.mp4"
+    description: "LLM Human-Robot Interaction interface"
+  - type: "video"
+    file: "/assets/projects/Waste_Sorting/detect_long.mp4"
+    description: "YOLO detection tracking"
+---
+
+## Project Overview
+Working alongside Prof. Rui Li at FAMS NYU, this project focused on building an end-to-end automated pipeline for waste detection, classification, and physical sorting. The physical system utilized a network of six XARM robotic arms managed via **ROS2 and Gazebo**, utilizing kinematics for precise pick-and-place operations informed by Time-of-Flight (ToF) proximity sensors.
+
+## Perception & Interaction
+To handle the perception layer, I fine-tuned a **YOLO model** specifically for identifying and segmenting paper, metal, and plastic waste. A rolling average filter was implemented across the detection horizon to mitigate noise and prevent misclassification of fast-moving objects on the live conveyor belt.
+
+Additionally, this project explored Human-Robot Interaction (HRI). By integrating an edge LLM (Llama 3 Instruct) and a Pydantic-based **CrewAI multi-agent framework**, the system can interpret and execute natural language commands, allowing users to verbally dictate which waste categories the robots should target and where they should be deposited.
+
+==============================
+
+FILE: rl_ppo_quadruped.md
+-------------------------
+---
+layout: project
+title: "PPO Reinforcement Learning for Quadruped Locomotion"
+order: 3
+description: "Trained a robust locomotion policy for the Unitree Go2 quadruped robot within the Isaac Lab physics simulator."
+date: 2025-05-10
+categories: [Reinforcement Learning, Simulation, Robotics]
+featured_image: "/assets/projects/RL_PPO/rl-ppo.mp4"
+gallery:
+  - type: "video"
+    file: "/assets/projects/RL_PPO/rl-ppo.mp4"
+    description: "Quadruped navigating uneven terrain"
+#   - type: "video"
+#     file: "/assets/projects/ActionChunk/action9.mp4"
+#     description: "Gait stabilization"
+  - type: "image"
+    file: "/assets/projects/RL_PPO/plots.png"
+    description: "Training reward and convergence plots"
+---
+
+## Project Overview
+This project centered on training a robust locomotion policy for the Unitree Go2 quadruped robot within the **Isaac Lab** physics simulator. Utilizing Proximal Policy Optimization (PPO)—a reinforcement learning algorithm that stabilizes training by limiting how much the policy can change per update—the goal was to evolve a deliberately weak baseline policy into a highly capable walking and trotting gait.
+
+Through principled reward shaping and regularization strategies, the policy was optimized for smooth footfall timing, base height maintenance, and accurate tracking of forward, lateral, and yaw velocity commands. The model's capabilities were further pushed by testing additional objectives, including bipedal walking and ensuring robust gait stability across procedurally generated, uneven terrain.
+
+==============================
+
+FILE: inverse_cauchy_ann.md
+---------------------------
+---
+layout: project
+title: "Neural Network Solutions for Inverse Cauchy Problems"
+order: 10
+description: "A multi-layer ANN designed to solve a 2D elliptic PDE for detecting material deformations and inhomogeneity."
+date: 2024-04-15
+categories: [Machine Learning, Mathematics, Deep Learning]
+featured_image: "/assets/projects/InverseProblem/result1.png"
+gallery:
+  - type: "image"
+    file: "/assets/projects/InverseProblem/problem.png"
+    description: "Problem Boundary Setup"
+  - type: "image"
+    file: "/assets/projects/InverseProblem/loss.png"
+    description: "Loss Function Convergence"
+  - type: "image"
+    file: "/assets/projects/InverseProblem/result1.png"
+    description: "Estimated Material Deformations"
+---
+
+## Project Overview
+Performed as a thesis at IIT Kharagpur under Professor Biswanath Banerjee, this computationally heavy research validated a methodology for estimating material deformations and inhomogeneities using partial boundary and domain data. The core challenge was solving a 2D elliptic Partial Differential Equation (the Inverse Cauchy problem), which is notoriously ill-posed.
+
+
+To solve this, I designed a multi-layer Artificial Neural Network with variable width to provide the highly non-linear kernels necessary for accurate mapping. The study successfully demonstrated an iterative procedure that isolates optimal material constants for the domain through the alternating minimization of a novel mathematical cost functional.
+
+==============================
+
+FILE: directory_logger.py
+-------------------------
+import os
+from pathlib import Path
+
+# Configuration: Folders to ignore
+EXCLUDED_DIRS = {'.git', 'node_modules', '__pycache__', '.venv', 'venv', 'dist', 'build','_site','vendor'}
+
+# Configuration: Files to read content from
+TEXT_EXTENSIONS = {'.py', '.cpp', '.h', '.hpp', '.html', '.css', '.js', '.txt', '.md'}
+
+# Configuration: Files to just mention
+MEDIA_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.gif', '.mp4', '.mkv', '.mov', '.pdf', '.webm'}
+
+def generate_tree(dir_path, prefix=""):
+    """Recursively generates a visual tree structure, skipping excluded directories."""
+    tree_str = ""
+    # Filter out excluded directories and files
+    paths = sorted([
+        p for p in dir_path.iterdir() 
+        if p.name not in EXCLUDED_DIRS
+    ])
+    
+    for i, path in enumerate(paths):
+        is_last = (i == len(paths) - 1)
+        connector = "└── " if is_last else "├── "
+        tree_str += f"{prefix}{connector}{path.name}\n"
+        
+        if path.is_dir():
+            extension = "    " if is_last else "│   "
+            tree_str += generate_tree(path, prefix + extension)
+    return tree_str
+
+def create_project_log(output_file="project_log.txt"):
+    root = Path(".")
+    
+    with open(output_file, "w", encoding="utf-8") as log:
+        # 1. Write Directory Structure
+        log.write("=== DIRECTORY STRUCTURE ===\n")
+        log.write(f"{root.resolve().name}/\n")
+        log.write(generate_tree(root))
+        log.write("\n" + "="*30 + "\n\n")
+
+        # 2. Iterate through files for content
+        # We use rglob but filter out any paths that contain excluded directories
+        for path in root.rglob("*"):
+            # Skip if it's a directory, the output file itself, or inside an excluded folder
+            if path.is_dir() or path.name == output_file:
+                continue
+            
+            # Check if any part of the file's path is in the excluded list
+            if any(part in EXCLUDED_DIRS for part in path.parts):
+                continue
+
+            suffix = path.suffix.lower()
+            log.write(f"FILE: {path}\n")
+            log.write("-" * (len(str(path)) + 6) + "\n")
+
+            if suffix in TEXT_EXTENSIONS:
+                try:
+                    content = path.read_text(encoding="utf-8")
+                    log.write(content)
+                except Exception as e:
+                    log.write(f"[Error reading file: {e}]")
+            elif suffix in MEDIA_EXTENSIONS:
+                log.write(f"[Binary/Media File: {suffix[1:].upper()} content skipped]")
+            else:
+                log.write("[Skipped: Unsupported file type]")
+            
+            log.write("\n\n" + "="*30 + "\n\n")
+
+    print(f"Log successfully created: {output_file}")
+
+if __name__ == "__main__":
+    create_project_log()
+
+==============================
+
+FILE: ai_mechanical_design.md
+-----------------------------
+---
+layout: project
+title: "AI-Driven Mechanical Design Framework"
+order: 12
+description: "Text-to-design framework interpreting natural language to generate immediate, interactive 3D visualizations."
+date: 2025-09-22
+categories: [Generative AI, Mechanical Design, Web3D]
+gallery:
+  - type: "video"
+    file: "/assets/projects/ai_mechanical/Screencast From 2025-09-22 00-53-24.webm"
+    description: "Text-to-3D Model Generation"
+  - type: "video"
+    file: "/assets/projects/ai_mechanical/Screencast From 2025-09-22 01-29-12.webm"
+    description: "Coupled XY Gantries Simulation"
+  - type: "video"
+    file: "/assets/projects/ai_mechanical/Screencast From 2025-09-22 02-18-19.webm"
+    description: "Automated Sanitization Station Design"
+  - type: "video"
+    file: "/assets/projects/ai_mechanical/Screencast From 2025-09-22 02-41-52.webm"
+    description: "Internal Mechanism of Sanatisation Rollers"
+---
+
+## Project Overview
+This project merged generative AI with mechanical engineering to streamline factory automation prototyping. I engineered a text-to-design framework capable of interpreting natural language requirements and generating immediate, interactive 3D visualizations using Three.js, completely bypassing the need for traditional CAD software or coding knowledge during the conceptual phase.
+
+## Technical Details
+The framework successfully generated functional demonstrations for a potential client. Models included a standard XY gantry for pick-and-place operations, a coupled pair of synchronized XY gantries for bottle capping, and an automated sanitization station featuring synchronized air sprays and rotary brushes.
+
+==============================
+
+FILE: vqvae_bimanual.md
+-----------------------
+---
+layout: project
+title: "VQ-VAE Hyperparameter Optimization for Bimanual Policies"
+order: 8
+description: "Troubleshooting and optimizing bimanual robotic policies on the YOR (Cone-E) hardware using AR Kit visual-inertial localization."
+date: 2025-06-20
+categories: [Robotics, Simulation, Machine Learning]
+gallery:
+  - type: "video"
+    file: "/assets/projects/vqvae_bimanual/bimanual.mp4"
+    description: "Bimanual policy execution"
+---
+
+## Project Overview
+Conducted at the GRAIL Lab, this project involved troubleshooting and optimizing bimanual robotic policies on the YOR (Cone-E) hardware. Trajectories were recorded using multi-iPhone visual-inertial localization via Apple's AR Kit. To validate these raw trajectory replays, I created a custom MuJoCo simulation environment using available MJCF files.
+
+## Technical Details
+During training, I ran comprehensive sweeps on the Vector Quantized Variational Autoencoder (VQ-VAE) hyperparameters within the VQ-BET behavioral cloning policy to isolate encoding bottlenecks. By analyzing variables like codebook size, sequential versus parallel codebooks, and loss weights, I identified that the primary degradation stemmed from AR Toolkit drift. To counter this, I proposed and implemented a targeted normalization strategy for the VQ-VAE input layers.
+
+==============================
+
+FILE: drdo1.md
+--------------
+---
+layout: project
+title: "Heterogeneous Swarm Robotics (DRDO)"
+order: 17
+description: "Multi-terrain coverage swarm capable of semi-autonomous SLAM-based surveys."
+date: 2024-10-30
+categories: [Robotics, Swarm, SLAM]
+featured_image: "/assets/images/projects/drdo-swarm/featured.jpg"
+github_url: "https://github.com/yourusername/drdo-swarm"
+demo_url: "https://youtu.be/your-demo-video"
+
+# 3D Models
+models: []
+
+# Circuit Schematics
+schematics: []
+
+# Code Files
+code_files:
+  - name: "SLAM Survey Logic"
+    file: "slam_survey.cpp"
+    language: "cpp"
+    download_url: "https://github.com/yourusername/drdo-swarm/blob/main/src/slam_survey.cpp"
+    content: |
+      # SLAM and mapping implementation
+
+# Components List
+components: []
+
+# Media gallery with images, videos, and GIFs
+gallery:
+  - type: "image"
+    file: "/assets/images/projects/drdo-swarm/competition.jpg"
+    description: "DRUSE Competition demonstration"
+---
+
+## Project Overview
+Developed for the DRUSE Competition hosted by DRDO (India's premier defense agency), where the project was declared the Winner.I developed a heterogeneous swarm designed for multi-terrain coverage. 
+
+## Technical Details
+* **Capabilities**: The swarm is capable of semi-autonomous SLAM-based surveys across varied environments.
+
+==============================
+
+FILE: drdo_uav.md
+-----------------
+---
+layout: project
+title: "Decentralized UAV Swarm (DRDO SASES)"
+order: 16
+description: "Ad-hoc networked, decentralized swarm of 4 drones for autonomous vision-based search and rescue."
+date: 2024-10-30
+categories: [UAV, Swarm, Networking]
+featured_image: "/assets/images/projects/uav-swarm/featured.jpg"
+github_url: "https://github.com/yourusername/uav-swarm"
+demo_url: "https://youtu.be/your-demo-video"
+
+# 3D Models
+models: []
+
+# Circuit Schematics
+schematics: []
+
+# Code Files
+code_files:
+  - name: "Mesh Routing setup"
+    file: "routing.sh"
+    language: "bash"
+    download_url: "https://github.com/yourusername/uav-swarm/blob/main/src/routing.sh"
+    content: |
+      # OLSR configuration
+
+# Components List
+components:
+  - name: "UAV Quadcopters"
+    quantity: 4
+    description: "Drones used in the swarm"
+    link: ""
+
+# Media gallery with images, videos, and GIFs
+gallery:
+  - type: "video"
+    file: "/assets/images/projects/uav-swarm/rescue-demo.mp4"
+    description: "Search and rescue simulation"
+---
+
+## Project Overview
+I developed an ad-hoc networked, decentralized swarm consisting of 4 drones. The system was built for autonomous vision-based search and rescue operations[cite: 54].
+
+## Technical Details
+* **Technologies Used**: Utilized MAVROS and OLSR mesh routing to manage the decentralized ad-hoc network between the UAVs.
+
+==============================
+
+FILE: zero_code_llm.md
+----------------------
+---
+layout: project
+title: "Zero-Code LLM-Driven Multi-Robot Coordination"
+order: 1
+description: "A framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using natural language."
+date: 2025-11-30
+categories: [Multi-Robot Systems, LLM, Control Systems]
+gallery:
+  - type: "video"
+    file: "/assets/projects/Mobile-Manipulation/combined_F.mp4"
+    description: "Collaborative multi-robot task execution"
+  - type: "video"
+    file: "/assets/projects/Mobile-Manipulation/Screencast From 2025-12-01 11-44-01.webm"
+    description: "System interface and tracking"
+---
+
+## Project Overview
+This research presented a comprehensive "zero-code" framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using purely natural language instructions through a Python-based GUI. The system bridged the gap between abstract, high-level user intent and precise, low-level physical execution by delegating task decomposition to Large Language Models.
+
+## System Architecture
+The framework integrates LLM tool-calling, perception, planning, and control layers.These layers are connected over a high-frequency RPC layer, which allows the system to create, schedule, and execute tasks directly from user text inputs.
+
+The perception layer relied on an overhead multi-camera setup calibrated using a Charuco board and stitched into a unified top-down view using homography alignment. Robot localization was handled externally by tracking ArUco tags mounted on the chassis. 
+
+High-level cognitive reasoning was powered by **Gemini 2.5 Pro**, which decomposed complex user prompts into actionable sub-tasks, while Moondream handled VLM-based object queries. An RPC server was established to coordinate task, robot, and data services, communicating with the physical hardware via an ESP32 bridge supporting Wi-Fi, BLE, and ESP-NOW.
+
+For physical execution, the framework utilized a highly responsive motion stack combining an **RRT* planner** with online replanning. A hybrid controller was deployed utilizing Pure Pursuit for general navigation and a tuned PID terminal controller to ensure millimeter-precision alignment. The framework was rigorously validated through complex physical experiments, including collaboratively ordering numbered blocks and two-robot color-sorting with live collision avoidance.
+
+**Technologies Used**: Gemini API, ZMQ, RRT*, and Control-Systems.
+
+==============================
+
+FILE: geron.md
+--------------
+---
+layout: project
+title: "Vision-Based Gerontechnology"
+order: 16
+description: "cv2-dnn based face-tracking Raspberry Pi module to detect falls and trigger fail-safes."
+date: 2024-10-30
+categories: [Computer Vision, Raspberry Pi, Healthcare Tech]
+featured_image: "/assets/images/projects/gerontech/featured.jpg"
+github_url: "https://github.com/yourusername/gerontech-vision"
+demo_url: "https://youtu.be/your-demo-video"
+
+# 3D Models
+models:
+  - file: "/assets/models/gerontech/casing.stl"
+    description: "Wall-mountable case for the Pi and camera"
+
+# Circuit Schematics
+schematics:
+  - file: "/assets/schematics/gerontech/failsafe.png"
+    description: "Fail-safe trigger relay circuit"
+
+# Code Files
+code_files:
+  - name: "Fall Detection"
+    file: "detect.py"
+    language: "python"
+    download_url: "https://github.com/yourusername/gerontech-vision/blob/main/src/detect.py"
+    content: |
+      # OpenCV face-tracking implementation
+
+# Components List
+components:
+  - name: "Raspberry Pi"
+    quantity: 1
+    description: "Main processing unit"
+    link: ""
+  - name: "Pi Camera Module"
+    quantity: 1
+    description: "Video input"
+    link: ""
+
+# Media gallery with images, videos, and GIFs
+gallery:
+  - type: "image"
+    file: "/assets/images/projects/gerontech/tracking.jpg"
+    description: "Face-tracking bounding box"
+---
+
+## Project Overview
+I built a specialized hardware module focused on assisting the elderly (Gerontechnology). The system acts as an automated observer that can detect falls and trigger appropriate fail-safes.
+
+## Technical Details
+* **Technology**: Built on a Raspberry Pi using a cv2-dnn based face-tracking framework.
+
+==============================
+
