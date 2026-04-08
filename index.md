@@ -27,6 +27,16 @@ layout: default
       </div>
 
     </div>
+
+    <!-- Scroll Indicator Arrow -->
+    <div class="scroll-indicator-container">
+      <div class="scroll-arrow">
+        <svg width="80" height="80" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+          <path d="M20 12L20 28M20 28L16 24M20 28L24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -167,3 +177,52 @@ layout: default
     </div>
   </div>
 </div>
+
+<style>
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.scroll-indicator-container {
+  text-align: center;
+  padding: 0 0 5px;
+  margin-top: -10px;
+  display: none;
+}
+
+.scroll-arrow {
+  display: inline-block;
+  color: var(--accent-color);
+  animation: bounce 2.5s ease-in-out infinite, fadeIn 0.8s ease-in-out 0.5s both;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.scroll-arrow:hover {
+  transform: scale(1.1);
+}
+
+.scroll-arrow svg {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+  .scroll-indicator-container {
+    display: block !important;
+  }
+}
+</style>

@@ -25,15 +25,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC)." />
 <meta property="og:description" content="Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC)." />
-<link rel="canonical" href="http://localhost:4000/Portfolio/projects/rl-finetuning-vqbet/" />
-<meta property="og:url" content="http://localhost:4000/Portfolio/projects/rl-finetuning-vqbet/" />
+<link rel="canonical" href="http://0.0.0.0:4000/Portfolio/projects/rl-finetuning-vqbet/" />
+<meta property="og:url" content="http://0.0.0.0:4000/Portfolio/projects/rl-finetuning-vqbet/" />
 <meta property="og:site_name" content="Pranav Shukla" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-12-10T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Residual Reinforcement Learning for VQ-BET Fine-Tuning" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Pranav Shukla"},"dateModified":"2025-12-10T00:00:00-05:00","datePublished":"2025-12-10T00:00:00-05:00","description":"Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC).","headline":"Residual Reinforcement Learning for VQ-BET Fine-Tuning","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Portfolio/projects/rl-finetuning-vqbet/"},"url":"http://localhost:4000/Portfolio/projects/rl-finetuning-vqbet/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Pranav Shukla"},"dateModified":"2025-12-10T00:00:00-05:00","datePublished":"2025-12-10T00:00:00-05:00","description":"Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC).","headline":"Residual Reinforcement Learning for VQ-BET Fine-Tuning","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/Portfolio/projects/rl-finetuning-vqbet/"},"url":"http://0.0.0.0:4000/Portfolio/projects/rl-finetuning-vqbet/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -155,7 +155,7 @@
                     <div class="project-description-content">
                         <p class="project-lead">Improving grasp accuracy of a pre-trained VQ-BET base policy by layering a residual RL component trained via Soft Actor-Critic (SAC).</p>
                         <h2 id="project-overview">Project Overview</h2>
-<p>This ongoing research at the GRAIL Lab seeks to close the sim-to-real gap for robotic manipulation. The core objective was to improve the grasp accuracy of a pre-trained VQ-BET base policy by layering a residual reinforcement learning component trained via Soft Actor-Critic (SAC) optimizations.</p>
+<p>This ongoing research at the GRAIL Lab (NYU Courant) seeks to close the sim-to-real gap for robotic manipulation. The core objective was to improve the grasp accuracy of a pre-trained VQ-BET base policy by layering a residual reinforcement learning component trained via Soft Actor-Critic (SAC) optimizations.</p>
 
 <h2 id="technical-details">Technical Details</h2>
 <p>Initial training occurred in a highly augmented visual simulation environment, followed by real-world fine-tuning using an auto-reset data collection setup with an XARM in a green-screen cage. The methodology incorporated offline RL critic initialization (evaluating Conservative Q-Learning and Implicit Q-Learning) alongside buffer mixing strategies. Furthermore, I implemented Low-Rank Adaptation (LoRA) and rejection-sampling-based iterative fine-tuning to continuously augment the trajectory data and improve corrective behaviors.</p>

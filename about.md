@@ -20,9 +20,12 @@ permalink: /about/
             </p>
         </div>
 
-        <div>
+        <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
             <a href="{{ '/assets/projects/CV_NYU_NEW-3.pdf' | relative_url }}" class="btn-primary" target="_blank">
                 <i class="fas fa-file-pdf"></i> Download Full Resume
+            </a>
+            <a href="{{ '/projects/' | relative_url }}" class="btn-primary">
+                <i class="fas fa-th"></i> View Projects
             </a>
         </div>
     </div>
@@ -138,6 +141,13 @@ permalink: /about/
                 </ul>
             </div>
         </section>
+
+        <div style="text-align: center; padding: var(--spacing-2xl) 0; border-top: 1px solid var(--border-color); margin-top: var(--spacing-3xl);">
+            <h3 style="color: var(--text-primary); margin-bottom: var(--spacing-lg);">Explore My Work</h3>
+            <a href="{{ '/projects/' | relative_url }}" class="btn-primary-large">
+                <i class="fas fa-th"></i> View All Projects
+            </a>
+        </div>
 
     </div>
 </div>
