@@ -5,10 +5,14 @@ order: 1
 description: "A framework enabling users to orchestrate a fleet of sensor-less, differential-drive mobile robots using natural language."
 date: 2025-11-30
 categories: [Multi-Robot Systems, LLM, Control Systems]
+featured_image: "/assets/projects/3-robot-combined.mp4"
 gallery:
   - type: "video"
     file: "/assets/projects/Mobile-Manipulation/combined_F.mp4"
     description: "Collaborative multi-robot task execution"
+  - type: "video"
+    file: "/assets/projects/3-robot-combined.mp4"
+    description: "Swarm of 3 robots coordinating with multi agent architecture"
   - type: "video"
     file: "/assets/projects/Mobile-Manipulation/Screencast From 2025-12-01 11-44-01.webm"
     description: "System interface and tracking"
